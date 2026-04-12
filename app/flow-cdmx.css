@@ -1,0 +1,383 @@
+/* FLOW CDMX — organic layer + mobile layout */
+
+.flow-page-root {
+  position: relative;
+  isolation: isolate;
+}
+
+.flow-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Organic fixed backdrop (behind content) */
+.flow-organic-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flow-organic-backdrop__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 15% 25%, rgba(139, 132, 86, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 40% at 85% 70%, rgba(196, 169, 107, 0.09) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 35% at 50% 100%, rgba(35, 32, 24, 0.9) 0%, transparent 55%);
+}
+
+.flow-organic-backdrop__leaves {
+  position: absolute;
+  inset: -10%;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cpath fill='%238B8456' fill-opacity='0.35' d='M200 20c40 60-20 140-80 180 60-20 120 0 160 40-40-80 20-180-80-220z'/%3E%3Cpath fill='%23C4A96B' fill-opacity='0.2' d='M320 200c-50 40-130 30-200 80 70-10 130 30 150 90 20-70-40-150 50-170z'/%3E%3Cpath fill='%238B8456' fill-opacity='0.25' d='M80 280c30-50 100-70 160-40-50 40-90 100-100 160-30-50-40-80-60-120z'/%3E%3C/svg%3E");
+  background-size: 420px 420px;
+  background-position: 10% 10% -5% 0%;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+}
+
+/* Scroll-reactive golden vines */
+.flow-scroll-vines {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.flow-scroll-vines svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 180vh;
+  will-change: transform;
+}
+
+/* Leaf cursor (fine pointers only — class toggled by JS) */
+html.flow-leaf-cursor,
+html.flow-leaf-cursor body {
+  cursor: none !important;
+}
+
+.flow-leaf-cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.12s ease-out;
+  filter: drop-shadow(0 2px 8px rgba(196, 169, 107, 0.35));
+}
+
+/* Section padding — mobile friendly */
+.flow-section {
+  padding: clamp(56px, 10vw, 100px) clamp(18px, 5vw, 48px);
+}
+
+.flow-section-tight {
+  padding: clamp(40px, 8vw, 80px) clamp(18px, 5vw, 48px);
+}
+
+/* Responsive grids */
+.flow-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.flow-grid-2-stacked {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.flow-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.flow-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.flow-grid-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(58, 55, 48, 0.6);
+}
+
+@media (max-width: 768px) {
+  .flow-grid-2,
+  .flow-grid-2-stacked {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-grid-hero-stats {
+    grid-template-columns: 1fr;
+    border-top: none;
+  }
+
+  .flow-grid-hero-stats > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(58, 55, 48, 0.6);
+    padding: 20px 0 !important;
+  }
+
+  .flow-grid-hero-stats > div:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Sponsor / ticket cards — rounded corners on mobile */
+@media (max-width: 768px) {
+  .flow-card-4 > * {
+    border-radius: 8px !important;
+  }
+
+  .flow-card-3 > * {
+    border-radius: 8px !important;
+  }
+
+  .flow-card-2 > * {
+    border-radius: 8px !important;
+  }
+}
+
+/* Nav */
+.flow-nav {
+  padding: 0 clamp(16px, 4vw, 32px);
+  height: auto;
+  min-height: 56px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.flow-nav-links--desktop {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .flow-nav-links--desktop {
+    display: none !important;
+  }
+}
+
+.flow-nav-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: 0.5px solid rgba(196, 169, 107, 0.45);
+  color: var(--flow-gold, #c4a96b);
+  padding: 10px 14px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .flow-nav-mobile-toggle {
+    display: block;
+  }
+}
+
+.flow-nav-drawer {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0 8px;
+  border-top: 0.5px solid rgba(58, 55, 48, 0.8);
+}
+
+.flow-nav-drawer.flow-nav-drawer--open {
+  display: flex;
+}
+
+@media (min-width: 769px) {
+  .flow-nav-drawer {
+    display: none !important;
+  }
+}
+
+/* Hero */
+.flow-hero {
+  padding: 0 clamp(18px, 5vw, 48px) clamp(48px, 10vw, 80px);
+  min-height: min(92vh, 900px);
+}
+
+.flow-hero-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .flow-hero-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flow-hero-row > div:last-child {
+    width: 100%;
+  }
+
+  .flow-hero-row > div:last-child button {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* About tags row */
+.flow-tag-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .flow-tag-row {
+    gap: 12px;
+  }
+}
+
+/* Future platform email row */
+.flow-email-row {
+  display: flex;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .flow-email-row {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .flow-email-row input {
+    border-radius: 4px !important;
+    border-right: 0.5px solid rgba(58, 55, 48, 0.8) !important;
+    border-bottom: none !important;
+  }
+
+  .flow-email-row button {
+    border-radius: 4px !important;
+    width: 100%;
+  }
+}
+
+/* Venue gallery */
+.flow-venue-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.flow-venue-gallery__main {
+  grid-row: span 2;
+  position: relative;
+  min-height: 220px;
+}
+
+.flow-venue-gallery__sub {
+  position: relative;
+  min-height: 100px;
+}
+
+.flow-venue-gallery .flow-venue-gallery__main,
+.flow-venue-gallery .flow-venue-gallery__sub {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .flow-venue-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .flow-venue-gallery__main {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 200px;
+  }
+
+  .flow-venue-gallery__sub {
+    min-height: 120px;
+  }
+}
+
+.flow-image-caption {
+  font-size: 10px;
+  color: rgba(156, 148, 135, 0.85);
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.flow-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-scroll-vines svg {
+    transform: none !important;
+  }
+
+  .flow-organic-backdrop__leaves {
+    opacity: 0.12;
+  }
+}
+
+@media (max-width: 768px) {
+  .flow-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Inquiry form grids */
+.flow-inquiry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .flow-inquiry-grid {
+    grid-template-columns: 1fr;
+  }
+}
