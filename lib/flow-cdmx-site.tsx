@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FormEvent, useState } from "react";
 
 export type SiteLink = { label: string; href: string };
 
@@ -89,28 +90,49 @@ function SectionTitle({
   );
 }
 
-function PersonCard({ profile }: { profile: ProfileEntry }) {
+function PersonCard({ profile, locale }: { profile: ProfileEntry; locale: "es" | "en" }) {
+  const [expanded, setExpanded] = useState(false);
+  const previewCount = 1;
+  const paragraphsToRender = expanded ? profile.paragraphs : profile.paragraphs.slice(0, previewCount);
+  const showToggle = profile.paragraphs.length > previewCount;
+  const isSteph = profile.name.toLowerCase().includes("steph ferrera");
+
   return (
     <motion.article
       {...sectionAnim}
       className="group rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 backdrop-blur-sm transition hover:border-lime-300/35"
     >
-      <div className="mb-4 overflow-hidden rounded-full border border-lime-200/20">
+      <motion.div
+        className="mb-4 overflow-hidden rounded-full border border-lime-200/20"
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
         <Image
           src={profile.image}
           alt={profile.name}
           width={220}
           height={220}
-          className="mx-auto aspect-square w-full max-w-[220px] object-cover transition duration-500 group-hover:scale-105"
+          className={`mx-auto aspect-square w-full max-w-[220px] object-cover transition duration-500 group-hover:scale-105 ${
+            isSteph ? "object-[center_28%]" : ""
+          }`}
         />
-      </div>
+      </motion.div>
       <h3 className="text-xl font-extrabold text-white">{profile.name}</h3>
       <p className="mt-1 text-sm font-medium text-lime-300/90">{profile.role}</p>
       <div className="mt-4 space-y-3 text-sm leading-relaxed text-neutral-300">
-        {profile.paragraphs.map((p, i) => (
+        {paragraphsToRender.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </div>
+      {showToggle ? (
+        <button
+          type="button"
+          onClick={() => setExpanded((s) => !s)}
+          className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-lime-300 hover:text-lime-200"
+        >
+          {expanded ? (locale === "es" ? "Ver menos" : "Show less") : locale === "es" ? "Ver más" : "Read more"}
+        </button>
+      ) : null}
       <div className="mt-5 flex flex-wrap gap-2">
         {profile.links.map((link) => (
           <a
@@ -145,6 +167,15 @@ export function FlowCdmxPage({
   causes: CauseEntry[];
   tickets: TicketTier[];
 }) {
+  const [ticketSubmitted, setTicketSubmitted] = useState(false);
+  const [ticketForm, setTicketForm] = useState({ name: "", email: "", interest: "", notes: "" });
+
+  const onTicketSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!ticketForm.name || !ticketForm.email || !ticketForm.interest) return;
+    setTicketSubmitted(true);
+  };
+
   return (
     <main lang={locale === "en" ? "en" : "es"} className="min-h-screen bg-[#090b08] text-white">
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(132,204,22,0.16),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(217,119,6,0.12),transparent_28%),linear-gradient(180deg,#090b08_0%,#0c140d_35%,#090b08_100%)]" />
@@ -238,9 +269,14 @@ export function FlowCdmxPage({
         <SectionTitle kicker={copy.sections.aliados} title={copy.partnersTitle} subtitle={copy.partnersSubtitle} />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {partners.map((partner) => (
-            <motion.article key={partner.name} {...sectionAnim} className="rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-5">
-              <div className="mb-4 flex h-20 items-center justify-center rounded-xl bg-black/25 p-2">
-                <Image src={partner.logo} alt={`Logo ${partner.name}`} width={210} height={100} className="h-16 w-auto object-contain" />
+            <motion.article
+              key={partner.name}
+              {...sectionAnim}
+              whileHover={{ y: -6 }}
+              className="rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-5 transition"
+            >
+              <div className="mb-4 flex h-28 items-center justify-center p-2">
+                <Image src={partner.logo} alt={`Logo ${partner.name}`} width={320} height={130} className="h-24 w-auto object-contain" />
               </div>
               <h3 className="text-lg font-bold text-white">{partner.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-300">{partner.description}</p>
@@ -270,7 +306,7 @@ export function FlowCdmxPage({
         <SectionTitle kicker={copy.sections.equipo} title={copy.teamTitle} />
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-2">
           {team.map((person) => (
-            <PersonCard key={person.name} profile={person} />
+            <PersonCard key={person.name} profile={person} locale={locale} />
           ))}
         </div>
       </section>
@@ -279,7 +315,7 @@ export function FlowCdmxPage({
         <SectionTitle kicker={copy.sections.artistas} title={copy.artistsTitle} />
         <div className="grid gap-6 md:grid-cols-2">
           {artists.map((person) => (
-            <PersonCard key={person.name} profile={person} />
+            <PersonCard key={person.name} profile={person} locale={locale} />
           ))}
         </div>
       </section>
@@ -313,19 +349,84 @@ export function FlowCdmxPage({
               <h3 className="text-xl font-bold text-white">{t.name}</h3>
               <p className="mt-4 text-4xl font-black tracking-tight text-lime-200">{t.priceLabel}</p>
               <p className="mt-4 text-sm leading-relaxed text-neutral-400">{t.description}</p>
-              <a
-                href={t.ctaHref}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
                 className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
                   t.featured ? "bg-lime-300 text-zinc-950 hover:bg-lime-200" : "border border-lime-300/40 text-lime-200 hover:bg-lime-300/10"
                 }`}
+                onClick={() => document.getElementById("registro-boletos")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t.ctaLabel}
-              </a>
+              </button>
             </motion.article>
           ))}
         </div>
+        <motion.div
+          id="registro-boletos"
+          {...sectionAnim}
+          className="mt-10 rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 md:p-8"
+        >
+          <h3 className="text-xl font-bold text-white">
+            {locale === "es" ? "Link de boletos coming soon" : "Ticket link coming soon"}
+          </h3>
+          <p className="mt-2 text-sm text-neutral-400">
+            {locale === "es"
+              ? "Mientras activamos el checkout, deja tus datos para enviarte el enlace de compra en cuanto esté listo."
+              : "While checkout goes live, leave your details and we will send you the direct purchase link as soon as it is ready."}
+          </p>
+
+          {!ticketSubmitted ? (
+            <form onSubmit={onTicketSubmit} className="mt-5 grid gap-3 md:grid-cols-2">
+              <input
+                type="text"
+                placeholder={locale === "es" ? "Nombre completo" : "Full name"}
+                value={ticketForm.name}
+                onChange={(e) => setTicketForm((s) => ({ ...s, name: e.target.value }))}
+                className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60"
+                required
+              />
+              <input
+                type="email"
+                placeholder={locale === "es" ? "Correo electrónico" : "Email"}
+                value={ticketForm.email}
+                onChange={(e) => setTicketForm((s) => ({ ...s, email: e.target.value }))}
+                className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60"
+                required
+              />
+              <select
+                value={ticketForm.interest}
+                onChange={(e) => setTicketForm((s) => ({ ...s, interest: e.target.value }))}
+                className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-lime-300/60 md:col-span-2"
+                required
+              >
+                <option value="">{locale === "es" ? "Me interesa..." : "I am interested in..."}</option>
+                {tickets.map((t) => (
+                  <option key={t.name} value={t.name}>
+                    {t.name}
+                  </option>
+                ))}
+              </select>
+              <textarea
+                placeholder={locale === "es" ? "Mensaje (opcional)" : "Message (optional)"}
+                value={ticketForm.notes}
+                onChange={(e) => setTicketForm((s) => ({ ...s, notes: e.target.value }))}
+                className="min-h-[90px] rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-lime-300 px-6 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 hover:bg-lime-200 md:col-span-2"
+              >
+                {locale === "es" ? "Registrarme para boletos" : "Join ticket waitlist"}
+              </button>
+            </form>
+          ) : (
+            <p className="mt-4 text-sm text-lime-200">
+              {locale === "es"
+                ? "Gracias. Te contactaremos apenas esté activo el link de compra."
+                : "Thank you. We will contact you as soon as the ticket link is live."}
+            </p>
+          )}
+        </motion.div>
         {copy.ticketsFootnote ? (
           <motion.p {...sectionAnim} className="mt-8 text-center text-sm text-neutral-500">
             {copy.ticketsFootnote}

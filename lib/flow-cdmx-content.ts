@@ -1,9 +1,6 @@
 import type { CauseEntry, FlowSiteCopy, PartnerEntry, ProfileEntry, TicketTier } from "./flow-cdmx-site";
 
-const MAIL_GENERAL =
-  "mailto:events@flownation.world?subject=FLOW%20CDMX%20%E2%80%94%20Entrada%20general%20(MXN%20222)";
-const MAIL_SUPPORTER =
-  "mailto:events@flownation.world?subject=FLOW%20CDMX%20%E2%80%94%20Supporter%20pass%20(MXN%20777%20con%20bebidas)";
+const TICKETS_COMING_SOON = "#registro-boletos";
 
 export const partnersShared: Omit<PartnerEntry, "description">[] = [
   {
@@ -94,8 +91,8 @@ export const copyEs: FlowSiteCopy = {
     kicker: "30 de abril · Huerto Roma Verde · Ciudad de México",
     title: "FLOW CDMX",
     lead: "Un encuentro cultural paralelo a Sundance CDMX que celebra el futuro del cine, la creatividad y la cultura consciente en México — con proyecciones, paneles, música, bienestar y comunidad en un solo día.",
-    cta: "Consigue tu lugar",
-    ctaSecondary: { label: "Versión internacional (EN)", href: "/sundance-mexico-city" },
+    cta: "Boletos",
+    ctaSecondary: { label: "English version", href: "/sundance-mexico-city" },
   },
   about: {
     kicker: "Sobre el evento",
@@ -117,7 +114,7 @@ export const copyEs: FlowSiteCopy = {
   ticketsTitle: "Boletos",
   ticketsLead: "Precios en pesos mexicanos (MXN). Cupo limitado.",
   ticketsFootnote:
-    "Para completar tu compra o resolver dudas, escríbenos a events@flownation.world o contáctanos por Instagram. Pronto activaremos también el enlace de pago en línea.",
+    "Estamos levantando una lista de interés para contacto y recaudación previa. En cuanto el checkout esté listo, conectaremos esta sección a la compra directa.",
   footer: {
     line1: "30 de abril · Huerto Roma Verde · CDMX",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
@@ -196,8 +193,8 @@ export const ticketsEs: TicketTier[] = [
     name: "Entrada general",
     priceLabel: "$222 MXN",
     description: "Acceso al día completo de programación en Huerto Roma Verde. Ideal para vivir el encuentro con ritmo propio.",
-    ctaLabel: "Solicitar entrada general",
-    ctaHref: MAIL_GENERAL,
+    ctaLabel: "Link de boletos coming soon",
+    ctaHref: TICKETS_COMING_SOON,
   },
   {
     name: "Supporter pass",
@@ -206,8 +203,8 @@ export const ticketsEs: TicketTier[] = [
       "Incluye bebidas en el evento y apoya de forma directa la producción y el impacto social del encuentro. Experiencia ampliada para quienes quieren estar más cerca del proyecto.",
     featured: true,
     featuredBadge: "Bebidas incluidas",
-    ctaLabel: "Solicitar supporter pass",
-    ctaHref: MAIL_SUPPORTER,
+    ctaLabel: "Link de boletos coming soon",
+    ctaHref: TICKETS_COMING_SOON,
   },
 ];
 
@@ -216,8 +213,8 @@ export const ticketsEn: TicketTier[] = [
     name: "General admission",
     priceLabel: "$222 MXN",
     description: "Full-day access to programming at Huerto Roma Verde — screenings, conversations, music, and community moments.",
-    ctaLabel: "Request general admission",
-    ctaHref: MAIL_GENERAL,
+    ctaLabel: "Ticket link coming soon",
+    ctaHref: TICKETS_COMING_SOON,
   },
   {
     name: "Supporter pass",
@@ -226,8 +223,8 @@ export const ticketsEn: TicketTier[] = [
       "Includes drinks at the event and directly supports production and social impact. For guests who want to go deeper and help the project scale with intention.",
     featured: true,
     featuredBadge: "Drinks included",
-    ctaLabel: "Request supporter pass",
-    ctaHref: MAIL_SUPPORTER,
+    ctaLabel: "Ticket link coming soon",
+    ctaHref: TICKETS_COMING_SOON,
   },
 ];
 
@@ -237,10 +234,10 @@ const img = {
   luna: "/flow-cdmx-assets/Luna Tamayo.png",
   haaz: "/flow-cdmx-assets/Haaz Rugerio (Tatewari).png",
   patricio: "/flow-cdmx-assets/Patricio Martinez.png",
-  mariana: "/flow-cdmx-assets/Mariana García (Márians).png",
+  mariana: "/flow-cdmx-assets/Mariana-Garcia-Marians.png",
   celina: "/flow-cdmx-assets/Celina Kyle Wolf.png",
   erman: "/flow-cdmx-assets/Erman Baradi.png",
-  emmanuel: "/flow-cdmx-assets/Emmanuel Massú aka El Chilo del Trapteño.png",
+  emmanuel: "/flow-cdmx-assets/Emmanuel-Massu.png",
   crissy: "/flow-cdmx-assets/Crissy J.png",
 };
 
@@ -249,9 +246,9 @@ export const teamEs: ProfileEntry[] = [
     name: "Michelle Young",
     role: "Fundadora, ROVE Collective · Productora y marketer de experiencias",
     paragraphs: [
-      "Michelle es fundadora de ROVE Collective y co-fundadora de The Box Collective. Artista multidisciplinaria y productora con más de 18 años en festivales y más de 12 años en marketing experiencial; ha colaborado con compañías y agencias premiadas como Refinery29, VICE, Render Event Design, iheartcomix y A-OK Collective.",
-      "Ha producido activaciones de alto impacto alrededor de Coachella, Super Bowl, SXSW, GRAMMYs, NYFW, LAFW, CES y VR Fest, entre otros. Su trabajo conecta producción impecable con narrativa emocional: desde campañas de lanzamiento hasta experiencias VIP para prensa, talento y marcas de lujo.",
-      "Como fundadora de ROVE, dirige eventos artísticos con impacto social en alianza con organizaciones como NAMI WLA, The Trevor Project, Saving Innocence y Women in Music. Vive en Puerto Vallarta con presencia creciente en la Ciudad de México y Estados Unidos, impulsando colaboración binacional con visión global.",
+      "Michelle Young, fundadora de ROVE Collective y cofundadora de The Box Collective y Flow Vallarta, es una artista multidisciplinaria, productora y especialista en marketing con más de 18 años de experiencia en producción de festivales y más de 12 años en marketing experiencial.",
+      "Ha trabajado con agencias y marcas como Refinery29, ENTER, VICE, Render Event Design, iheartcomix, A-OK Collective, Disney, YSL, Soho House, Rolling Stone, Amazon, entre otras.",
+      "Ha producido activaciones de alto impacto en eventos como Coachella, Super Bowl, SXSW, GRAMMYs, NYFW, LAFW, CES y más, además de eventos como el Children’s Hospital Los Angeles Benefit Gala, que recaudó $5.5 millones de dólares en una sola noche. Es reconocida por su capacidad de liderar producciones complejas, integrar narrativa con ejecución y crear experiencias culturales de alto impacto.",
     ],
     image: img.michelle,
     links: [
@@ -263,8 +260,10 @@ export const teamEs: ProfileEntry[] = [
     name: "Steph Ferrera",
     role: "Fundadora, FlowBond · Arquitecta social",
     paragraphs: [
-      "Creadora de FlowBond, plataforma enfocada en tecnología, cultura y sistemas regenerativos. Su trabajo conecta comunidad, arte y herramientas digitales con un enfoque en impacto real — no en promesas vacías.",
-      "Impulsa DANZ como protocolo social en movimiento: una forma contemporánea de reunir cuerpo, música y presencia colectiva. Su enfoque combina visión estratégica con sensibilidad cultural profunda.",
+      "Steph Ferrera es fundadora, arquitecta social y tecnóloga creativa enfocada en la intersección de tecnología, cultura y sistemas regenerativos.",
+      "Es la creadora de FlowBond, una plataforma diseñada para transformar la presencia, el movimiento y la conexión humana en valor medible a través de nuevas infraestructuras digitales.",
+      "Su trabajo se enfoca en el desarrollo de redes globales de experiencias, integrando tecnología, comunidad y cultura para generar sistemas de colaboración y regeneración a escala.",
+      "A través de DANZ, impulsa una red de eventos donde la interacción humana se convierte en una capa activa de valor, conectando experiencias físicas con sistemas digitales. Colabora globalmente en el desarrollo de proyectos que integran identidad descentralizada, inteligencia artificial para la regeneración gamificando y experiencias en el mundo real, con el objetivo de construir nuevas formas de organización, conexión y expansión colectiva.",
     ],
     image: img.steph,
     links: [{ label: "Linktree · stepbystephBTM", href: "https://linktr.ee/stepbystephBTM" }],
@@ -273,9 +272,9 @@ export const teamEs: ProfileEntry[] = [
     name: "Luna Tamayo",
     role: "Productora · Conductora · Locutora",
     paragraphs: [
-      "Artista multidisciplinaria con trayectoria en la intersección del arte escénico y la comunicación masiva. Licenciada en Artes Escénicas por la Universidad de Guadalajara.",
-      "Hoy es pieza clave en radio y televisión: productora y locutora de El Resplandor (radio con transmisión simultánea en TV), conductora de CPS News en Tv Mar y locutora en Radiante 98.3. Es creadora del podcast Polytales.",
-      "Su trabajo frente a cámara incluye reconocimientos en cortometrajes y formación en danza contemporánea, actuación y clown; domina el inglés a nivel avanzado (Cambridge C2) para colaboraciones internacionales.",
+      "Luna Tamayo es una artista multidisciplinaria, actriz, productora y locutora con una sólida trayectoria en medios, cine y artes escénicas.",
+      "Licenciada en Artes Escénicas por la Universidad de Guadalajara, actualmente es productora y conductora de El Resplandor, CPS News y Radiante 98.3, además de creadora del pódcast Polytales.",
+      "Ha participado como actriz en cortometrajes reconocidos en festivales como Shorts México y FICPV. Bilingüe en inglés y español, combina experiencia en producción, entrevistas, conducción de eventos y creación de narrativas para proyectos culturales y marcas. Luna es una de las figuras más dinámicas de la escena mediática actual en el occidente de México. Especialista en comunicación, producción y narrativa de impacto.",
     ],
     image: img.luna,
     links: [],
@@ -284,8 +283,8 @@ export const teamEs: ProfileEntry[] = [
     name: "Haaz Rugerio (Tatewari)",
     role: "DJ · Productor · Director creativo",
     paragraphs: [
-      "DJ y productor de música electrónica con enfoque en experiencias inmersivas y diseño de iluminación. Director creativo de Sexico City Camp en AfrikaBurn.",
-      "Su práctica cruza pista, escena y atmósfera: construye mundos sonoros y visuales para que la audiencia habite el momento, no solo observe.",
+      "Haaz Rugerio (Tatewari) es un DJ y productor mexicano de música electrónica basado en la Ciudad de México.",
+      "Apasionado del arte y la humanidad. Es director creativo de Sexico City Camp en AfrikaBurn y productor de eventos enfocado en crear experiencias inmersivas, con especial interés en el diseño de iluminación como elemento central.",
     ],
     image: img.haaz,
     links: [],
@@ -294,8 +293,9 @@ export const teamEs: ProfileEntry[] = [
     name: "Patricio Martínez",
     role: "Documentalista · Cinefotógrafo",
     paragraphs: [
-      "Su trabajo ha sido publicado en National Geographic, The Washington Post, The New York Times y organismos de la ONU. Creador de RIVUS: El último río vivo — cine de territorio, memoria y urgencia ambiental.",
-      "Su mirada combina rigor periodístico con sensibilidad cinematográfica; acompaña historias donde la imagen sirve a la verdad y a la belleza al mismo tiempo.",
+      "Patricio Martínez es un documentalista, cinefotógrafo y narrador visual radicado en Ciudad de México, cuyo trabajo explora el territorio, la memoria, la identidad y la relación entre las comunidades y la tierra que habitan.",
+      "Con formación en fotografía y artes visuales, ha colaborado con organizaciones y medios como National Geographic, The Washington Post, NPR, CNBC, The New York Times y las Naciones Unidas.",
+      "Su aclamado proyecto RIVUS: El Último Río Vivo documenta el rescate y la preservación del último río vivo de la Ciudad de México, llevando atención urgente a temas de agua, ecología y conservación liderada por las comunidades.",
     ],
     image: img.patricio,
     links: [
@@ -307,8 +307,9 @@ export const teamEs: ProfileEntry[] = [
     name: "Mariana García (Márians)",
     role: "Productora · DJ · Creadora de experiencias",
     paragraphs: [
-      "Ha producido eventos en destinos exclusivos como Careyes y Cuixmala, integrando estética, logística y hospitalidad para figuras internacionales y marcas globales.",
-      "Su enfoque habita el cruce entre arte, música y experiencia humana: atmósferas donde el cuerpo guía y la presencia se vuelve posible. Trabaja como DJ, artista multidisciplinaria y gestora cultural.",
+      "Productora, DJ y creadora de experiencias enfocadas en arte, música y experiencia humana.",
+      "Ha trabajado en destinos como Careyes y Cuixmala, produciendo eventos de alto nivel para figuras internacionales, marcas y comunidades creativas.",
+      "Su enfoque integra estética, logística y presencia, diseñando espacios donde el arte y el cuerpo generan conexión real.",
     ],
     image: img.mariana,
     links: [{ label: "Sitio web · marians.mx", href: "https://marians.mx/es" }],
@@ -317,8 +318,8 @@ export const teamEs: ProfileEntry[] = [
     name: "Celina Kyle Wolf",
     role: "Productora de moda y experiencias",
     paragraphs: [
-      "Más de 17 años en logística, dirección creativa y producción de pasarelas, campañas editoriales, fashion films y experiencias de marca — de New York Fashion Week y London Fashion Week a Dior Cruise 2023 en México.",
-      "Ha colaborado con casas como Oscar de la Renta, Versace, Michael Kors, Tory Burch y Vogue México y LATAM; integra estética, sostenibilidad y ejecución impecable. Habla español, inglés, francés e italiano.",
+      "Productora de moda y experiencias con más de 17 años de trayectoria trabajando con marcas globales como Dior, Versace, Oscar de la Renta y Vogue.",
+      "Integra estética, sostenibilidad y ejecución de alto nivel en proyectos culturales y de moda.",
     ],
     image: img.celina,
     links: [],
@@ -327,8 +328,8 @@ export const teamEs: ProfileEntry[] = [
     name: "Erman Baradi",
     role: "Cineasta · Fundador, Ermantourage",
     paragraphs: [
-      "Nacido en Virginia Beach y formado en Hollywood. Fundador de Ermantourage; su carrera gira en torno a acercar a las personas a través del relato. The Huffington Post lo nombró “Top Networker in Hollywood” a los 26 años.",
-      "Ha producido eventos de la industria en Los Ángeles, Nueva York, Londres, Miami, Toronto y más allá; combina cine, comunidad y conversaciones que abren puertas.",
+      "Cineasta, emprendedor y fundador de Ermantourage, enfocado en conectar personas a través del storytelling y experiencias globales.",
+      "Ha producido eventos en múltiples ciudades internacionales y ha desarrollado plataformas que conectan industria, comunidad y cultura.",
     ],
     image: img.erman,
     links: [{ label: "Instagram · @ermanbaradi", href: "https://www.instagram.com/ermanbaradi/" }],
@@ -412,8 +413,9 @@ export const artistsEs: ProfileEntry[] = [
     name: "Emmanuel Massú aka El Chilo del Trapteño",
     role: "Cineasta · Cantautor · Rapero",
     paragraphs: [
-      "Con casi dos décadas en la industria, fusiona hip hop con los paisajes sonoros del norte de México y ha forjado el Trapteño — una propuesta musical y narrativa con raíz regional y proyección internacional.",
-      "Su documental Los Plebes fue selección Ahora México en FICUNAM 2021 y se distribuyó con Vice Media, consolidando un cine que habla desde el territorio con honestidad y estética propia.",
+      "Cineasta, Cantautor y Rapero Sinaloense, nacido en Culiacán, Sinaloa; con 19 años en el medio se ha abierto paso en la industria musical fusionado el hip hop con paisajes sonoros del norte de México, creando así el Trapteño.",
+      "Como cineaste, hizo un documental que se llama Los Plebes. En 2018 dio a luz este cortometraje junto al cineasta Eduardo Giral, mostrando una realidad alejada del lujo y glamour: la vida de un grupo de sicarios adolescentes, sus aspiraciones y su contexto inmediato.",
+      "El documental ganó Selección Ahora México en FICUNAM 2021 y ha sido distribuido con el apoyo de Cine Buró y Vice Media.",
     ],
     image: img.emmanuel,
     links: [],
@@ -422,8 +424,8 @@ export const artistsEs: ProfileEntry[] = [
     name: "Crissy J",
     role: "Artista · Violinista · DJ",
     paragraphs: [
-      "Violinista y DJ multi-género, curadora y activista; ha tocado desde Carnegie Hall hasta los GRAMMYs, llevando el escenario en vivo a nuevas alturas con propuestas que mezclan música, sanación y comunidad.",
-      "Su movimiento #UnifyTheUniverse invita a converger bajo el lenguaje universal de la música — una apuesta por sanar el alma, un show a la vez.",
+      "Artista, violinista y DJ multi-género, curadora y activista enfocada en la conciencia y la conexión a través de la música.",
+      "Ha participado en escenarios internacionales y ha creado experiencias innovadoras que combinan música, arte, comunidad y sanación.",
     ],
     image: img.crissy,
     links: [
