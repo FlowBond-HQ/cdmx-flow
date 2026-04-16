@@ -22,35 +22,39 @@ export const metadata: Metadata = {
     template: "%s | FLOW CDMX",
   },
   description:
-    "FLOW CDMX is a one-night gathering in Mexico City—film, live conversation, music, and wellness at Huerto Roma Verde. Partners, tickets, and RSVP.",
+    "FLOW CDMX — encuentro cultural el 30 de abril en Huerto Roma Verde, Ciudad de México. Cine, música, bienestar y comunidad. Boletos en MXN.",
   keywords: [
     "FLOW CDMX",
     "Flow Nation",
-    "Mexico City",
+    "Ciudad de México",
     "CDMX",
     "Huerto Roma Verde",
-    "Roma Norte",
-    "culture",
-    "film",
-    "wellness",
+    "Sundance CDMX",
+    "cine",
+    "cultura consciente",
+    "evento",
   ],
   alternates: {
     canonical: "/",
+    languages: {
+      es: "/",
+      en: "/sundance-mexico-city",
+    },
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "es_MX",
     url: siteUrl,
     siteName: "Flow Nation",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "A one-night Flow Nation experience in Mexico City—April 30 at Huerto Roma Verde. Tickets, partners, and RSVP.",
+      "30 de abril · Huerto Roma Verde · Ciudad de México. Cine, música, bienestar y comunidad — público local, narrativa en español.",
   },
   twitter: {
     card: "summary_large_image",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "A one-night Flow Nation experience in Mexico City—April 30 at Huerto Roma Verde.",
+      "30 de abril · Huerto Roma Verde · Ciudad de México. Boletos desde $222 MXN.",
   },
   robots: {
     index: true,
@@ -65,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
