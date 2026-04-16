@@ -39,7 +39,7 @@ export const partnersShared: Omit<PartnerEntry, "description">[] = [
   {
     name: "FlowBond",
     logo: "/flow-cdmx-assets/FlowBond LOGOS/1.png",
-    links: [{ label: "flowbond.xyz", href: "https://flowbond.xyz" }],
+    links: [{ label: "flowbond.app", href: "https://flowbond.app" }],
   },
   {
     name: "DANZ",
