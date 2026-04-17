@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "./flow-cdmx.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontCormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-cormorant",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontInter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const siteUrl = "https://cdmx.flownation.world";
@@ -70,7 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fontCormorant.variable} ${fontInter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
