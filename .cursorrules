@@ -1,0 +1,44 @@
+# SCOPE RULES - FLOW CDMX EVENT SITE
+# Repo: cdmx.flownation.world
+# Org: flowbondhq
+# Purpose: Event site for FLOW CDMX (April 30, 2026)
+# Stack: Next.js 14 App Router, TypeScript, Tailwind, Supabase, Vercel
+
+## HARD BOUNDARIES - NEVER VIOLATE
+
+You operate EXCLUSIVELY inside this repository.
+
+1. NEVER cd into any folder outside /Users/stephferrera/Projects/flowcdmx
+2. NEVER reference, read, or modify files in:
+   - /Users/stephferrera/Projects/flowbond/
+   - /Users/stephferrera/Projects/flowbond-os/
+   - /Users/stephferrera/Projects/flowbond-app/
+   - /Users/stephferrera/Projects/FlowBond/
+   - Any path outside this repo
+3. NEVER clone, pull, or push to any other repository
+4. If a task mentions another project, STOP and ask before acting
+5. If you need context from another repo, ASK Steph to provide it manually
+
+## GIT RULES - STRICT
+
+1. NEVER commit or push directly to main
+2. ALWAYS verify current branch before staging: git branch --show-current
+3. ALWAYS work on feature branches: feat/, fix/, chore/, docs/
+4. Commit messages: Conventional Commits format
+5. Stage files explicitly with git add <file> - NEVER git add . or git add -A
+6. Before any push, show Steph: branch, staged files, commit message
+7. Never use: reset --hard, push --force, or destructive operations without approval
+
+## REPO IDENTITY
+
+This repo does ONE thing: the public website for the April 30 FLOW CDMX event.
+It is NOT the FlowBond OS monorepo.
+It is NOT the FlowBond core platform.
+It will eventually be extracted to flowbond-os - but NOT NOW.
+
+## WORKING STYLE
+
+- Ask clarifying questions before destructive operations
+- Show diffs before applying changes to more than 3 files
+- When Steph says STOP, halt immediately and report state
+- Never auto-approve terminal commands containing: rm, reset --hard, push --force
