@@ -5,7 +5,7 @@ const TICKETS_COMING_SOON = "#registro-boletos";
 export const partnersShared: Omit<PartnerEntry, "description">[] = [
   {
     name: "ROVE Collective",
-    logo: "/flow-cdmx-assets/ROVE LOGOS/1.png.png",
+    logo: "/flow-cdmx-assets/ROVE LOGOS/3.png",
     links: [
       { label: "Instagram", href: "https://www.instagram.com/rovecollective/" },
       { label: "flowvallarta.com", href: "https://www.flowvallarta.com/" },
@@ -13,7 +13,7 @@ export const partnersShared: Omit<PartnerEntry, "description">[] = [
   },
   {
     name: "The Box Collective",
-    logo: "/flow-cdmx-assets/The box Collective LOGOS/1.png.png",
+    logo: "/flow-cdmx-assets/The box Collective LOGOS/2.png",
     links: [],
   },
   {

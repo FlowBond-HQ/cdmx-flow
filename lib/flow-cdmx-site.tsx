@@ -103,24 +103,37 @@ function SectionTitle({
   );
 }
 
+function personPortraitImageClass(name: string): string {
+  const n = name.toLowerCase();
+  if (n.includes("michelle young")) {
+    /* Slight zoom hides edge banding / stray light line on source asset */
+    return "object-cover object-center scale-[1.18] transition duration-700 ease-out group-hover:scale-[1.22]";
+  }
+  if (n.includes("steph ferrera")) {
+    return "object-cover object-[center_30%] scale-[1.05] transition duration-700 ease-out group-hover:scale-[1.08]";
+  }
+  return "object-cover object-center transition duration-700 ease-out group-hover:scale-[1.05]";
+}
+
 function PersonCard({ profile, locale }: { profile: ProfileEntry; locale: "es" | "en" }) {
   const [expanded, setExpanded] = useState(false);
   const previewCount = 1;
   const paragraphsToRender = expanded ? profile.paragraphs : profile.paragraphs.slice(0, previewCount);
   const showToggle = profile.paragraphs.length > previewCount;
+  const imgClass = personPortraitImageClass(profile.name);
 
   return (
     <motion.article
       {...sectionAnim}
       className="group rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 backdrop-blur-sm transition hover:border-lime-300/35"
     >
-      <div className="relative mb-4 mx-auto max-w-[220px] overflow-hidden rounded-2xl border border-lime-200/20 aspect-[4/5]">
+      <div className="relative mx-auto mb-5 aspect-square w-[220px] max-w-full shrink-0 overflow-hidden rounded-full border border-white/[0.14] bg-zinc-950/50 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.92)] ring-1 ring-white/10 ring-inset">
         <Image
           src={profile.image}
           alt={profile.name}
           fill
-          sizes="(max-width: 768px) 100vw, 220px"
-          className="object-cover object-center transition duration-500 group-hover:scale-[1.02]"
+          sizes="(max-width: 768px) 45vw, 220px"
+          className={imgClass}
         />
       </div>
       <h3 className="text-xl font-extrabold text-white">{profile.name}</h3>
