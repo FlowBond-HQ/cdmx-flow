@@ -12,7 +12,13 @@ const ALLOWED = new Set<string>(["steph", "michelle"]);
 
 export async function POST(request: Request) {
   if (!hasAdminSessionSecret()) {
-    return NextResponse.json({ error: "Admin session secret missing." }, { status: 503 });
+    return NextResponse.json(
+      {
+        error:
+          "Falta ADMIN_SESSION_SECRET en el servidor (Vercel → Environment Variables, mín. 16 caracteres). Sin eso no se puede iniciar sesión.",
+      },
+      { status: 503 },
+    );
   }
 
   let body: unknown;
