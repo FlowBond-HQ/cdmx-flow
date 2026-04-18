@@ -1,10 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "./utils";
 
-export type SectionHeadingTheme = "champagne" | "obsidian";
-
 export type SectionHeadingProps = {
-  theme?: SectionHeadingTheme;
   title: string;
   subtitle?: string;
   eyebrow?: string;
@@ -15,7 +12,6 @@ export type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  theme = "champagne",
   title,
   subtitle,
   eyebrow,
@@ -23,8 +19,6 @@ export function SectionHeading({
   className,
   actions,
 }: SectionHeadingProps) {
-  const isChampagne = theme === "champagne";
-
   return (
     <div
       className={cn(
@@ -34,14 +28,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p
-          className={cn(
-            "text-xs font-semibold uppercase tracking-[0.2em]",
-            isChampagne ? "text-champagne-goldDark" : "text-obsidian-gold",
-          )}
-        >
-          {eyebrow}
-        </p>
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-obsidian-gold">{eyebrow}</p>
       ) : null}
       <div
         className={cn(
@@ -50,31 +37,13 @@ export function SectionHeading({
         )}
       >
         <div className="max-w-3xl space-y-2">
-          <h2
-            className={cn(
-              "text-balance text-3xl font-medium sm:text-4xl",
-              isChampagne
-                ? "font-serif text-champagne-ink"
-                : "font-sans text-obsidian-ivory",
-            )}
-          >
-            {title}
-          </h2>
+          <h2 className="text-balance font-sans text-3xl font-medium text-obsidian-ivory sm:text-4xl">{title}</h2>
           {subtitle ? (
-            <p
-              className={cn(
-                "max-w-2xl text-base leading-relaxed",
-                isChampagne ? "text-champagne-ink/85" : "text-obsidian-goldLight/90",
-              )}
-            >
-              {subtitle}
-            </p>
+            <p className="max-w-2xl text-base leading-relaxed text-obsidian-text-muted">{subtitle}</p>
           ) : null}
         </div>
         {actions ? (
-          <div className={cn("shrink-0", align === "center" && "sm:mx-auto")}>
-            {actions}
-          </div>
+          <div className={cn("shrink-0", align === "center" && "sm:mx-auto")}>{actions}</div>
         ) : null}
       </div>
     </div>

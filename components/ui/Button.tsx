@@ -6,36 +6,21 @@ import type {
 } from "react";
 import { cn } from "./utils";
 
-export type ButtonTheme = "champagne" | "obsidian";
 export type ButtonVariant = "primary" | "secondary" | "outline";
 
 const baseClasses =
-  "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-[2px] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.08em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
-const themeVariantClasses: Record<
-  ButtonTheme,
-  Record<ButtonVariant, string>
-> = {
-  champagne: {
-    primary:
-      "bg-champagne-gold text-champagne-ink hover:bg-champagne-goldDark hover:text-champagne-bg focus-visible:outline-champagne-goldDark",
-    secondary:
-      "bg-champagne-surface text-champagne-ink border border-champagne-border hover:bg-champagne-border/80 focus-visible:outline-champagne-gold",
-    outline:
-      "border border-champagne-goldDark bg-transparent text-champagne-goldDark hover:bg-champagne-surface focus-visible:outline-champagne-goldDark",
-  },
-  obsidian: {
-    primary:
-      "bg-obsidian-gold text-obsidian-bg hover:bg-obsidian-goldLight hover:text-obsidian-bg focus-visible:outline-obsidian-goldLight",
-    secondary:
-      "bg-obsidian-surface text-obsidian-ivory border border-obsidian-border hover:bg-obsidian-border/40 focus-visible:outline-obsidian-gold",
-    outline:
-      "border border-obsidian-gold bg-transparent text-obsidian-gold hover:bg-obsidian-surface focus-visible:outline-obsidian-gold",
-  },
+const variantClasses: Record<ButtonVariant, string> = {
+  primary:
+    "bg-obsidian-gold text-black hover:bg-obsidian-goldLight hover:text-black focus-visible:outline-obsidian-gold",
+  secondary:
+    "border border-obsidian-ivory bg-transparent text-obsidian-ivory hover:bg-obsidian-surface focus-visible:outline-obsidian-ivory",
+  outline:
+    "border border-obsidian-gold bg-transparent text-obsidian-gold hover:bg-obsidian-surface focus-visible:outline-obsidian-gold",
 };
 
 export type ButtonProps = {
-  theme?: ButtonTheme;
   variant?: ButtonVariant;
   className?: string;
   children: ReactNode;
@@ -49,34 +34,26 @@ export type ButtonProps = {
 );
 
 export function Button({
-  theme = "champagne",
   variant = "primary",
   className,
   children,
   ...rest
 }: ButtonProps) {
-  const styles = cn(
-    baseClasses,
-    themeVariantClasses[theme][variant],
-    className,
-  );
+  const styles = cn(baseClasses, variantClasses[variant], className);
 
   if ("href" in rest && typeof rest.href === "string") {
     const { href, ...anchorProps } = rest;
     return (
-      <Link
-        href={href}
-        className={styles}
-        {...anchorProps}
-      >
+      <Link href={href} className={styles} {...anchorProps}>
         {children}
       </Link>
     );
   }
 
   const buttonProps = rest as ButtonHTMLAttributes<HTMLButtonElement>;
+  const { type = "button", ...attrs } = buttonProps;
   return (
-    <button type="button" className={styles} {...buttonProps}>
+    <button type={type} className={styles} {...attrs}>
       {children}
     </button>
   );

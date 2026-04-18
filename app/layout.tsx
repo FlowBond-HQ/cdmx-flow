@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import "./flow-cdmx.css";
 
-const fontCormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
 const fontInter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -72,10 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${fontCormorant.variable} ${fontInter.variable} h-full antialiased`}
-    >
+    <html lang="es" className={`${fontInter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

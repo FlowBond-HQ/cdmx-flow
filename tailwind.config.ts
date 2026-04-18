@@ -8,14 +8,6 @@ const config = {
   theme: {
     extend: {
       colors: {
-        champagne: {
-          bg: "#FAF7F0",
-          surface: "#F5EBD0",
-          border: "#E5D9B8",
-          gold: "#C9A95E",
-          goldDark: "#8B6F2E",
-          ink: "#2C2416",
-        },
         obsidian: {
           bg: "#0E0D0B",
           surface: "#1A1714",
@@ -23,10 +15,13 @@ const config = {
           gold: "#C9A95E",
           goldLight: "#F5E9C7",
           ivory: "#F5E9C7",
+          "gold-border-subtle": "rgba(201, 169, 94, 0.15)",
+          "gold-border-medium": "rgba(201, 169, 94, 0.4)",
+          "text-muted": "rgba(233, 217, 168, 0.7)",
+          "text-dim": "rgba(255, 255, 255, 0.5)",
         },
       },
       fontFamily: {
-        serif: ["var(--font-cormorant)", "Georgia", "serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
     },
