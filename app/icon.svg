@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="FLOW CDMX">
+  <rect width="32" height="32" rx="8" fill="#000000"/>
+  <circle cx="16" cy="16" r="11" fill="#D0FF5E"/>
+  <!-- F mark -->
+  <path fill="#000000" d="M11 10h7v2h-5v3h4v2h-4v5h-2V10z"/>
+</svg>
