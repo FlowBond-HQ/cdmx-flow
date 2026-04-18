@@ -191,7 +191,7 @@ export const causesEn: CauseEntry[] = [
 export const ticketsEs: TicketTier[] = [
   {
     name: "Entrada general",
-    priceLabel: "$222 MXN",
+    priceLabel: "$333 MXN",
     description: "Acceso al día completo de programación en Huerto Roma Verde. Ideal para vivir el encuentro con ritmo propio.",
     ctaLabel: "Link de boletos coming soon",
     ctaHref: TICKETS_COMING_SOON,
@@ -211,7 +211,7 @@ export const ticketsEs: TicketTier[] = [
 export const ticketsEn: TicketTier[] = [
   {
     name: "General admission",
-    priceLabel: "$222 MXN",
+    priceLabel: "$333 MXN",
     description: "Full-day access to programming at Huerto Roma Verde — screenings, conversations, music, and community moments.",
     ctaLabel: "Ticket link coming soon",
     ctaHref: TICKETS_COMING_SOON,

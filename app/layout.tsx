@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "30 de abril · Huerto Roma Verde · Ciudad de México. Boletos desde $222 MXN.",
+      "30 de abril · Huerto Roma Verde · Ciudad de México. Boletos desde $333 MXN.",
   },
   robots: {
     index: true,
