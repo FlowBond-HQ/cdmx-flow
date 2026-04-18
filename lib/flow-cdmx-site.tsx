@@ -73,6 +73,7 @@ export type FlowSiteCopy = {
     ctaSub: string;
     ctaButton: string;
   };
+  program: { title: string; body: string };
   footer: { line1: string; rights: string };
 };
 
@@ -372,6 +373,13 @@ export function FlowCdmxPage({
             </motion.article>
           ))}
         </div>
+      </section>
+
+      <section id="programa" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
+        <motion.div {...sectionAnim} className="mb-10 space-y-3">
+          <h2 className="text-3xl font-black leading-tight text-neutral-100 md:text-5xl">{copy.program.title}</h2>
+          <p className="max-w-4xl leading-relaxed text-neutral-400">{copy.program.body}</p>
+        </motion.div>
       </section>
 
       <section id="tickets" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">

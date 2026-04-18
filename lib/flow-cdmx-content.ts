@@ -125,6 +125,10 @@ export const copyEs: FlowSiteCopy = {
     ctaSub: "Aplica para ser parte del Flow.",
     ctaButton: "Aplicar como artista →",
   },
+  program: {
+    title: "Programa",
+    body: "El programa completo del día se anuncia pronto.",
+  },
   footer: {
     line1: "30 de abril · Huerto Roma Verde · CDMX",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
@@ -178,6 +182,10 @@ export const copyEn: FlowSiteCopy = {
     ctaHeading: "Are you an artist, filmmaker, or collaborator?",
     ctaSub: "Apply to be part of Flow.",
     ctaButton: "Apply as artist →",
+  },
+  program: {
+    title: "Program",
+    body: "The full day's program will be announced soon.",
   },
   footer: {
     line1: "April 30 · Huerto Roma Verde · Mexico City",
