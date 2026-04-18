@@ -18,7 +18,6 @@ export default function Home() {
       artists={artistsEs}
       causes={causesEs}
       tickets={ticketsEs}
-      visualTheme="champagne"
     />
   );
 }
