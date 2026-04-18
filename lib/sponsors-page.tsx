@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { SponsorInquiryForm } from "./sponsor-inquiry-form";
 import type { SponsorsCopy, SponsorsTier } from "./sponsors-content";
 
 const sectionAnim = {
@@ -163,7 +164,7 @@ export function SponsorsPageClient({ copy }: { copy: SponsorsCopy }) {
         </motion.article>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-10">
+      <section id="patrocinio-form" className="mx-auto max-w-7xl px-5 py-20 md:px-10 scroll-mt-24">
         <SectionHeader eyebrow={copy.vendorsEyebrow} title={copy.vendorsTitle} body={copy.vendorsIntro} />
         <motion.div {...sectionAnim} className="mb-8">
           <h3 className="text-lg font-black text-white">{copy.vendorRatesTitle}</h3>
@@ -190,37 +191,15 @@ export function SponsorsPageClient({ copy }: { copy: SponsorsCopy }) {
         <motion.p {...sectionAnim} className="mb-10 max-w-4xl text-sm text-neutral-400">
           {copy.vendorAddOnsNote}
         </motion.p>
-        <h3 className="mb-4 text-xl font-bold text-white">{copy.formTitle}</h3>
-        <motion.form
-          {...sectionAnim}
-          className="grid gap-3 rounded-2xl border border-lime-200/10 bg-zinc-900/70 p-6 md:grid-cols-2 md:p-8"
-        >
-          <input className="rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm" placeholder={copy.formLabels.name} />
-          <input className="rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm" placeholder={copy.formLabels.brand} />
-          <textarea
-            className="min-h-24 rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm md:col-span-2"
-            placeholder={copy.formLabels.description}
-          />
-          <input
-            className="rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm md:col-span-2"
-            placeholder={copy.formLabels.bringing}
-          />
-          <input className="rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm" placeholder={copy.formLabels.website} />
-          <input
-            className="rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm"
-            placeholder={copy.formLabels.social}
-          />
-          <input
-            className="rounded-xl border border-lime-200/20 bg-black/25 px-4 py-3 text-sm md:col-span-2"
-            placeholder={copy.formLabels.contact}
-          />
-          <button
-            type="button"
-            className="mt-2 rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 hover:bg-lime-200 md:col-span-2"
-          >
-            {copy.formLabels.submit}
-          </button>
-        </motion.form>
+        <h3 className="mb-2 text-xl font-bold text-white">{copy.formTitle}</h3>
+        {copy.formLead ? (
+          <motion.p {...sectionAnim} className="mb-6 max-w-3xl text-sm text-neutral-400">
+            {copy.formLead}
+          </motion.p>
+        ) : null}
+        <motion.div {...sectionAnim}>
+          <SponsorInquiryForm copy={copy} />
+        </motion.div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-10">
