@@ -191,7 +191,8 @@ export const causesEn: CauseEntry[] = [
 export const ticketsEs: TicketTier[] = [
   {
     name: "Entrada general",
-    priceLabel: "$222 MXN",
+    priceLabel: "$333 MXN",
+    secondaryLine: "En puerta: $400 MXN",
     description: "Acceso al día completo de programación en Huerto Roma Verde. Ideal para vivir el encuentro con ritmo propio.",
     ctaLabel: "Link de boletos coming soon",
     ctaHref: TICKETS_COMING_SOON,
@@ -199,6 +200,7 @@ export const ticketsEs: TicketTier[] = [
   {
     name: "Supporter pass",
     priceLabel: "$777 MXN",
+    secondaryLine: "En puerta: $850 MXN",
     description:
       "Incluye bebidas en el evento y apoya de forma directa la producción y el impacto social del encuentro. Experiencia ampliada para quienes quieren estar más cerca del proyecto.",
     featured: true,
@@ -211,7 +213,8 @@ export const ticketsEs: TicketTier[] = [
 export const ticketsEn: TicketTier[] = [
   {
     name: "General admission",
-    priceLabel: "$222 MXN",
+    priceLabel: "$333 MXN",
+    secondaryLine: "At door: $400 MXN",
     description: "Full-day access to programming at Huerto Roma Verde — screenings, conversations, music, and community moments.",
     ctaLabel: "Ticket link coming soon",
     ctaHref: TICKETS_COMING_SOON,
@@ -219,6 +222,7 @@ export const ticketsEn: TicketTier[] = [
   {
     name: "Supporter pass",
     priceLabel: "$777 MXN",
+    secondaryLine: "At door: $850 MXN",
     description:
       "Includes drinks at the event and directly supports production and social impact. For guests who want to go deeper and help the project scale with intention.",
     featured: true,

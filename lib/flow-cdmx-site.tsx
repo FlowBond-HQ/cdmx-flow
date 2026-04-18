@@ -27,6 +27,8 @@ export type CauseEntry = { title: string; body: string };
 export type TicketTier = {
   name: string;
   priceLabel: string;
+  /** Door / secondary price line shown under the main price */
+  secondaryLine?: string;
   description: string;
   featured?: boolean;
   featuredBadge?: string;
@@ -348,6 +350,9 @@ export function FlowCdmxPage({
               ) : null}
               <h3 className="text-xl font-bold text-white">{t.name}</h3>
               <p className="mt-4 text-4xl font-black tracking-tight text-lime-200">{t.priceLabel}</p>
+              {t.secondaryLine ? (
+                <p className="mt-2 text-sm tabular-nums text-neutral-400">{t.secondaryLine}</p>
+              ) : null}
               <p className="mt-4 text-sm leading-relaxed text-neutral-400">{t.description}</p>
               <button
                 type="button"
