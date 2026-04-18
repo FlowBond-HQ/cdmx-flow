@@ -1,10 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function AdminLoginPage() {
-  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -18,15 +16,22 @@ export default function AdminLoginPage() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
         body: JSON.stringify({ username: username.trim(), password }),
       });
-      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      const data = (await res.json().catch(() => ({}))) as { error?: string; ok?: boolean };
       if (!res.ok) {
         setError(data.error ?? "No se pudo iniciar sesión.");
         return;
       }
-      router.push("/admin");
-      router.refresh();
+      if (data.ok !== true) {
+        setError("Respuesta inválida del servidor. Revisa variables ADMIN_SESSION_SECRET y ADMIN_PASSWORD en Vercel.");
+        return;
+      }
+      // Full navigation so the session cookie is always applied (more reliable than client router on admin host).
+      window.location.assign("/admin");
+    } catch {
+      setError("No se pudo conectar. Revisa la red o desactiva bloqueadores para este sitio.");
     } finally {
       setPending(false);
     }
