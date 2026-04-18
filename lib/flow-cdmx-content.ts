@@ -264,10 +264,7 @@ export const teamEs: ProfileEntry[] = [
     name: "Steph Ferrera",
     role: "Fundadora, FlowBond · Arquitecta social",
     paragraphs: [
-      "Steph Ferrera es fundadora, arquitecta social y tecnóloga creativa enfocada en la intersección de tecnología, cultura y sistemas regenerativos.",
-      "Es la creadora de FlowBond, una plataforma diseñada para transformar la presencia, el movimiento y la conexión humana en valor medible a través de nuevas infraestructuras digitales.",
-      "Su trabajo se enfoca en el desarrollo de redes globales de experiencias, integrando tecnología, comunidad y cultura para generar sistemas de colaboración y regeneración a escala.",
-      "A través de DANZ, impulsa una red de eventos donde la interacción humana se convierte en una capa activa de valor, conectando experiencias físicas con sistemas digitales. Colabora globalmente en el desarrollo de proyectos que integran identidad descentralizada, inteligencia artificial para la regeneración gamificando y experiencias en el mundo real, con el objetivo de construir nuevas formas de organización, conexión y expansión colectiva.",
+      "Steph Ferrera diseña sistemas donde la experiencia humana se convierte en valor. Es arquitecta de nuevas economías en la intersección de tecnología, cultura y coordinación humana, enfocada en la tokenización de activos y experiencias del mundo real y en la creación de infraestructuras para el thriving humano a escala. Su trabajo se despliega en ecosistemas globales como BitBasel, Tulum Crypto Fest, LaBitConf, Devconnect, Token2049, Coinfest, ETH Denver y SXSW, donde participa como speaker, organizadora y artista, conectando innovación, comunidad y expresión cultural. Forma parte de una nueva generación de builders que están extendiendo la propiedad digital hacia la realidad física, contribuyendo a iniciativas que vinculan NFTs y artefactos culturales con sistemas de preservación a largo plazo, incluyendo misiones lunares y archivos en el espacio. Está construyendo una nueva capa económica donde la presencia, la interacción y la conexión humana se convierten en activos medibles y escalables.",
     ],
     image: img.steph,
     links: [{ label: "Linktree · stepbystephBTM", href: "https://linktr.ee/stepbystephBTM" }],
@@ -355,8 +352,7 @@ export const teamEn: ProfileEntry[] = teamEs.map((m) => {
       ...m,
       role: "Founder, FlowBond · Social architect",
       paragraphs: [
-        "Creator of FlowBond — a platform focused on technology, culture, and regenerative systems. Her work connects community, art, and digital tools with real-world outcomes rather than empty hype.",
-        "She advances DANZ as a social-in-motion protocol: a contemporary way to gather body, music, and collective presence.",
+        "Steph Ferrera designs systems where human experience becomes value. An architect of new economies at the intersection of technology, culture and human coordination, focused on the tokenization of real-world assets and experiences, and on building infrastructures for human thriving at scale. Her work spans global ecosystems including BitBasel, Tulum Crypto Fest, LaBitConf, Devconnect, Token2049, Coinfest, ETH Denver, and SXSW, where she participates as speaker, organizer, and artist — connecting innovation, community, and cultural expression. She's part of a new generation of builders extending digital ownership into physical reality, contributing to initiatives that link NFTs and cultural artifacts with long-term preservation systems, including lunar missions and archives in space. She's building a new economic layer where presence, interaction, and human connection become measurable, scalable assets.",
       ],
     },
     "Luna Tamayo": {
