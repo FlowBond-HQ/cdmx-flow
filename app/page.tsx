@@ -1,23 +1,5 @@
-import { FlowCdmxPage } from "@/lib/flow-cdmx-site";
-import {
-  artistsEs,
-  causesEs,
-  copyEs,
-  partnersEs,
-  teamEs,
-  ticketsEs,
-} from "@/lib/flow-cdmx-content";
+import ObsidianHome from "@/components/landing/ObsidianHome";
 
 export default function Home() {
-  return (
-    <FlowCdmxPage
-      locale="es"
-      copy={copyEs}
-      partners={partnersEs}
-      team={teamEs}
-      artists={artistsEs}
-      causes={causesEs}
-      tickets={ticketsEs}
-    />
-  );
+  return <ObsidianHome />;
 }

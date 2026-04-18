@@ -46,7 +46,7 @@ export const sponsorTiers: SponsorTier[] = [
     name: 'Movement',
     priceUSD: 30000,
     priceMXN: 600000,
-    tagline: 'Partner estratégico del flow',
+    tagline: 'Partner estratégico del Flow',
     benefits: [
       'Todo lo de Flow',
       '15 minutos en escenario principal',

@@ -27,8 +27,11 @@ export type CauseEntry = { title: string; body: string };
 export type TicketTier = {
   name: string;
   priceLabel: string;
-  description: string;
+  /** Subtitle under price (e.g. "El día del evento") */
+  secondaryLine?: string;
+  description?: string;
   featured?: boolean;
+  /** Shown above card when featured (e.g. "POPULAR") */
   featuredBadge?: string;
   ctaLabel: string;
   ctaHref: string;
@@ -348,7 +351,9 @@ export function FlowCdmxPage({
               ) : null}
               <h3 className="text-xl font-bold text-white">{t.name}</h3>
               <p className="mt-4 text-4xl font-black tracking-tight text-lime-200">{t.priceLabel}</p>
-              <p className="mt-4 text-sm leading-relaxed text-neutral-400">{t.description}</p>
+              {t.description ? (
+                <p className="mt-4 text-sm leading-relaxed text-neutral-400">{t.description}</p>
+              ) : null}
               <button
                 type="button"
                 className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
