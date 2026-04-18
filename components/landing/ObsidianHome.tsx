@@ -5,6 +5,7 @@ import { HeroObsidian } from "./HeroObsidian";
 import { ObsidianLayout } from "./ObsidianLayout";
 import { PossibleArtists } from "./PossibleArtists";
 import { SobreFlowSection } from "./SobreFlowSection";
+import { TeamGrid } from "./TeamGrid";
 
 export default function ObsidianHome() {
   return (
@@ -12,7 +13,7 @@ export default function ObsidianHome() {
       <HeroObsidian />
       <SobreFlowSection />
       <PossibleArtists />
-      <div id="equipo" className="scroll-mt-28" />
+      <TeamGrid />
       <div id="programa" className="scroll-mt-28" />
       <BoletosObsidianSection />
     </ObsidianLayout>
