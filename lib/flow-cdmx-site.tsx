@@ -187,12 +187,46 @@ export function FlowCdmxPage({
   tickets: TicketTier[];
 }) {
   const [ticketSubmitted, setTicketSubmitted] = useState(false);
+  const [ticketSubmitting, setTicketSubmitting] = useState(false);
+  const [ticketError, setTicketError] = useState<string | null>(null);
   const [ticketForm, setTicketForm] = useState({ name: "", email: "", interest: "", notes: "" });
 
-  const onTicketSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onTicketSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!ticketForm.name || !ticketForm.email || !ticketForm.interest) return;
-    setTicketSubmitted(true);
+    setTicketError(null);
+    setTicketSubmitting(true);
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: ticketForm.name.trim(),
+          email: ticketForm.email.trim(),
+          interest: ticketForm.interest,
+          notes: ticketForm.notes.trim() || null,
+          locale,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { error?: string; ok?: boolean };
+      if (!res.ok || data.ok !== true) {
+        setTicketError(
+          typeof data.error === "string"
+            ? data.error
+            : locale === "es"
+              ? "No se pudo enviar. Intenta de nuevo."
+              : "Could not send. Please try again.",
+        );
+        return;
+      }
+      setTicketSubmitted(true);
+    } catch {
+      setTicketError(
+        locale === "es" ? "No se pudo enviar. Intenta de nuevo." : "Could not send. Please try again.",
+      );
+    } finally {
+      setTicketSubmitting(false);
+    }
   };
 
   return (
@@ -449,8 +483,50 @@ export function FlowCdmxPage({
               : "While checkout goes live, leave your details and we will send you the direct purchase link as soon as it is ready."}
           </p>
 
+          <div className="mt-6 grid gap-4 rounded-2xl border border-lime-200/10 bg-black/25 p-4 md:grid-cols-2">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300/90">
+                {locale === "es" ? "Patrocinio" : "Sponsorship"}
+              </p>
+              <Link
+                href="/sponsors#patrocinio-form"
+                className="inline-block text-sm font-medium text-white underline decoration-lime-400/45 underline-offset-4 transition hover:text-lime-200"
+              >
+                {locale === "es"
+                  ? "Ver más información sobre patrocinios y enviar una solicitud"
+                  : "Learn more about sponsorships and send an inquiry"}
+              </Link>
+            </div>
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300/90">
+                {locale === "es" ? "Ser parte del FLOW" : "Be part of FLOW"}
+              </p>
+              <div className="flex flex-col gap-2 text-sm">
+                <Link
+                  href="/artistas/aplicar"
+                  className="font-medium text-lime-200/95 underline decoration-lime-400/40 underline-offset-4 hover:text-white"
+                >
+                  {locale === "es" ? "¿Eres artista? → Aplicar" : "Are you an artist? → Apply"}
+                </Link>
+                <Link
+                  href="/colaborar"
+                  className="font-medium text-neutral-200 underline decoration-lime-400/35 underline-offset-4 hover:text-white"
+                >
+                  {locale === "es"
+                    ? "¿Productor, marca o proyecto? → Colaborar"
+                    : "Producer, brand, or project? → Collaborate"}
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {!ticketSubmitted ? (
             <form onSubmit={onTicketSubmit} className="mt-5 grid gap-3 md:grid-cols-2">
+              {ticketError ? (
+                <p className="md:col-span-2 rounded-xl border border-red-400/30 bg-red-950/40 px-4 py-3 text-sm text-red-200">
+                  {ticketError}
+                </p>
+              ) : null}
               <input
                 type="text"
                 placeholder={locale === "es" ? "Nombre completo" : "Full name"}
@@ -488,9 +564,16 @@ export function FlowCdmxPage({
               />
               <button
                 type="submit"
-                className="rounded-full bg-lime-300 px-6 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 hover:bg-lime-200 md:col-span-2"
+                disabled={ticketSubmitting}
+                className="rounded-full bg-lime-300 px-6 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 hover:bg-lime-200 disabled:cursor-not-allowed disabled:opacity-60 md:col-span-2"
               >
-                {locale === "es" ? "Registrarme para boletos" : "Join ticket waitlist"}
+                {ticketSubmitting
+                  ? locale === "es"
+                    ? "Enviando…"
+                    : "Sending…"
+                  : locale === "es"
+                    ? "Registrarme para boletos"
+                    : "Join ticket waitlist"}
               </button>
             </form>
           ) : (

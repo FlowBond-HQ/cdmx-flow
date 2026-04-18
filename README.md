@@ -16,6 +16,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Supabase (forms)
+
+| Flow | API | Table | Page |
+|------|-----|-------|------|
+| Ticket interest | `POST /api/waitlist` | `ticket_waitlist` | Home `#registro-boletos` |
+| Artists | `POST /api/artist-application` | `artist_applications` | `/artistas/aplicar` |
+| Sponsors | `POST /api/sponsor-inquiry` | `sponsor_inquiries` | `/sponsors#patrocinio-form` |
+| Brands / producers | `POST /api/collaborator-application` | `collaborator_applications` | `/colaborar` |
+
+All writes use the Supabase **service role** on the server only. Copy `.env.example` to `.env.local`, run the SQL files in `supabase/migrations/` in order, then see **`docs/supabase-setup.md`**.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

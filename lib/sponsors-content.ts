@@ -45,8 +45,13 @@ export type SponsorsCopy = {
   closingTitle: string;
   closingBody: string;
   formTitle: string;
+  formLead?: string;
+  formSuccess: string;
+  formSending: string;
+  formSubmitError: string;
   formLabels: {
     name: string;
+    email: string;
     brand: string;
     description: string;
     bringing: string;
@@ -256,14 +261,19 @@ export const sponsorsCopyEs: SponsorsCopy = {
   closingBody:
     "Actualmente estamos confirmando patrocinadores, vendors, colaboradores y partners comunitarios para el 30 de abril. Si te interesa explorar un patrocinio, activación personalizada o alianza de medios, nos encantaría conectar.",
   formTitle: "Solicitud de información",
+  formLead: "Cuéntanos sobre tu marca o proyecto. Te respondemos por correo.",
+  formSuccess: "Gracias. Recibimos tu mensaje y te contactaremos pronto.",
+  formSending: "Enviando…",
+  formSubmitError: "No se pudo enviar. Intenta de nuevo o escríbenos por correo.",
   formLabels: {
     name: "Nombre",
+    email: "Correo electrónico",
     brand: "Marca / proyecto",
     description: "Descripción",
     bringing: "¿Qué te gustaría activar?",
     website: "Sitio web",
     social: "Redes sociales",
-    contact: "Contacto",
+    contact: "Tel u otro contacto (opcional)",
     submit: "Enviar solicitud",
   },
   ctaTiers: "Ver niveles de patrocinio",
@@ -467,14 +477,19 @@ export const sponsorsCopyEn: SponsorsCopy = {
   closingBody:
     "We’re currently confirming sponsors, vendors, collaborators, and community partners for April 30. If you’d like to explore sponsorship, a custom activation, or a media partnership, we’d love to connect.",
   formTitle: "Inquiry form",
+  formLead: "Tell us about your brand or project. We will follow up by email.",
+  formSuccess: "Thank you — we received your message and will be in touch soon.",
+  formSending: "Sending…",
+  formSubmitError: "Could not send. Try again or email us.",
   formLabels: {
     name: "Name",
+    email: "Email",
     brand: "Brand / project",
     description: "Description",
     bringing: "What would you like to activate?",
     website: "Website",
     social: "Social links",
-    contact: "Contact",
+    contact: "Phone or other contact (optional)",
     submit: "Submit inquiry",
   },
   ctaTiers: "View sponsorship tiers",
