@@ -4,7 +4,9 @@ import { BoletosObsidianSection } from "./BoletosObsidianSection";
 import { HeroObsidian } from "./HeroObsidian";
 import { ObsidianLayout } from "./ObsidianLayout";
 import { PossibleArtists } from "./PossibleArtists";
+import { ProgramComingSoon } from "./ProgramComingSoon";
 import { SobreFlowSection } from "./SobreFlowSection";
+import { SponsorsTeaser } from "./SponsorsTeaser";
 import { TeamGrid } from "./TeamGrid";
 
 export default function ObsidianHome() {
@@ -14,8 +16,9 @@ export default function ObsidianHome() {
       <SobreFlowSection />
       <PossibleArtists />
       <TeamGrid />
-      <div id="programa" className="scroll-mt-28" />
+      <ProgramComingSoon />
       <BoletosObsidianSection />
+      <SponsorsTeaser />
     </ObsidianLayout>
   );
 }
