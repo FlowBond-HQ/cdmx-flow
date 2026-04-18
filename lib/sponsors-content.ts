@@ -43,7 +43,7 @@ export const globalCities: string[] = [
 export const sponsorTiers: SponsorTier[] = [
   {
     name: "FLOWNATION PARTNER",
-    price: "$30,000 USD",
+    price: "$30,000 USD / 600,000 MXN",
     featured: true,
     features: [
       "Primary logo placement",
@@ -59,7 +59,7 @@ export const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "FLOW PARTNER",
-    price: "$10,000 USD",
+    price: "$10,000 USD / 200,000 MXN",
     features: [
       "Logo placement and mentions",
       "Stage presence (up to 30 min)",
@@ -71,7 +71,7 @@ export const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "SPARK PARTNER",
-    price: "$4,000 USD",
+    price: "$1,000 USD / 20,000 MXN",
     features: ["Logo placement", "Mentions", "1 banner or stand", "Content inclusion", "1 mission"],
   },
   {
