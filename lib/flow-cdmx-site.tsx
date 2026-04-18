@@ -22,7 +22,7 @@ export type ProfileEntry = {
   links: SiteLink[];
 };
 
-export type CauseEntry = { title: string; body: string };
+export type CauseEntry = { title: string; body: string; logo?: string };
 
 export type TicketTier = {
   name: string;
@@ -64,9 +64,8 @@ export type FlowSiteCopy = {
   ticketsTitle: string;
   ticketsLead: string;
   ticketsFootnote?: string;
+  /** Copy for the single “Artistas y panelistas” block (intro, placeholder, apply CTA) */
   possibleArtists: {
-    kicker: string;
-    title: string;
     intro: string;
     placeholder: string;
     ctaHeading: string;
@@ -89,13 +88,15 @@ function SectionTitle({
   title,
   subtitle,
 }: {
-  kicker: string;
+  kicker?: string;
   title: string;
   subtitle?: string;
 }) {
   return (
     <motion.div {...sectionAnim} className="mb-10 space-y-3">
-      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-lime-300/85">{kicker}</p>
+      {kicker ? (
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-lime-300/85">{kicker}</p>
+      ) : null}
       <h2 className="text-3xl font-black leading-tight text-neutral-100 md:text-5xl">{title}</h2>
       {subtitle ? <p className="max-w-4xl leading-relaxed text-neutral-400">{subtitle}</p> : null}
     </motion.div>
@@ -107,28 +108,21 @@ function PersonCard({ profile, locale }: { profile: ProfileEntry; locale: "es" |
   const previewCount = 1;
   const paragraphsToRender = expanded ? profile.paragraphs : profile.paragraphs.slice(0, previewCount);
   const showToggle = profile.paragraphs.length > previewCount;
-  const isSteph = profile.name.toLowerCase().includes("steph ferrera");
 
   return (
     <motion.article
       {...sectionAnim}
       className="group rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 backdrop-blur-sm transition hover:border-lime-300/35"
     >
-      <motion.div
-        className="mb-4 overflow-hidden rounded-full border border-lime-200/20"
-        animate={{ y: [0, -4, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      >
+      <div className="relative mb-4 mx-auto max-w-[220px] overflow-hidden rounded-2xl border border-lime-200/20 aspect-[4/5]">
         <Image
           src={profile.image}
           alt={profile.name}
-          width={220}
-          height={220}
-          className={`mx-auto aspect-square w-full max-w-[220px] object-cover transition duration-500 group-hover:scale-105 ${
-            isSteph ? "object-[center_28%]" : ""
-          }`}
+          fill
+          sizes="(max-width: 768px) 100vw, 220px"
+          className="object-cover object-center transition duration-500 group-hover:scale-[1.02]"
         />
-      </motion.div>
+      </div>
       <h3 className="text-xl font-extrabold text-white">{profile.name}</h3>
       <p className="mt-1 text-sm font-medium text-lime-300/90">{profile.role}</p>
       <div className="mt-4 space-y-3 text-sm leading-relaxed text-neutral-300">
@@ -168,7 +162,6 @@ export function FlowCdmxPage({
   partners,
   team,
   artists,
-  possibleArtists,
   causes,
   tickets,
 }: {
@@ -177,7 +170,6 @@ export function FlowCdmxPage({
   partners: PartnerEntry[];
   team: ProfileEntry[];
   artists: ProfileEntry[];
-  possibleArtists: ProfileEntry[];
   causes: CauseEntry[];
   tickets: TicketTier[];
 }) {
@@ -279,47 +271,35 @@ export function FlowCdmxPage({
         </motion.div>
       </section>
 
-      <section id="posibles-artistas" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
-        <SectionTitle
-          kicker={copy.possibleArtists.kicker}
-          title={copy.possibleArtists.title}
-          subtitle={copy.possibleArtists.intro}
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {possibleArtists.map((person) => (
-            <PersonCard key={person.name} profile={person} locale={locale} />
-          ))}
-          <motion.div
-            {...sectionAnim}
-            className="flex min-h-[280px] items-center justify-center rounded-2xl border border-dashed border-lime-200/25 bg-zinc-900/40 p-6 text-center"
-          >
-            <p className="text-lg font-semibold text-neutral-400">{copy.possibleArtists.placeholder}</p>
-          </motion.div>
-        </div>
-        <motion.div {...sectionAnim} className="mt-12 rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-8 text-center md:p-10">
-          <h3 className="text-2xl font-black text-white md:text-3xl">{copy.possibleArtists.ctaHeading}</h3>
-          <p className="mt-3 max-w-2xl mx-auto text-neutral-400">{copy.possibleArtists.ctaSub}</p>
-          <Link
-            href="/artistas/aplicar"
-            className="mt-6 inline-flex rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-lime-200"
-          >
-            {copy.possibleArtists.ctaButton}
-          </Link>
-        </motion.div>
-      </section>
-
       <section id="aliados" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
         <SectionTitle kicker={copy.sections.aliados} title={copy.partnersTitle} subtitle={copy.partnersSubtitle} />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {partners.map((partner) => (
+          {partners.map((partner) => {
+            const isWideCauseLogo =
+              partner.name === "Festival de Cine Consciente" || partner.name === "Yelapa Foundation";
+            return (
             <motion.article
               key={partner.name}
               {...sectionAnim}
               whileHover={{ y: -6 }}
               className="rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-5 transition"
             >
-              <div className="mb-4 flex h-28 items-center justify-center p-2">
-                <Image src={partner.logo} alt={`Logo ${partner.name}`} width={320} height={130} className="h-24 w-auto object-contain" />
+              <div
+                className={`mb-4 flex items-center justify-center px-2 ${
+                  isWideCauseLogo ? "min-h-[12rem] md:min-h-[14rem]" : "min-h-[10rem] md:min-h-[11rem]"
+                }`}
+              >
+                <Image
+                  src={partner.logo}
+                  alt={`Logo ${partner.name}`}
+                  width={400}
+                  height={180}
+                  className={
+                    isWideCauseLogo
+                      ? "max-h-44 w-auto max-w-full object-contain md:max-h-52"
+                      : "max-h-36 w-auto max-w-full object-contain md:max-h-40"
+                  }
+                />
               </div>
               <h3 className="text-lg font-bold text-white">{partner.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-300">{partner.description}</p>
@@ -341,7 +321,8 @@ export function FlowCdmxPage({
                 )}
               </div>
             </motion.article>
-          ))}
+          );
+          })}
         </div>
       </section>
 
@@ -355,12 +336,28 @@ export function FlowCdmxPage({
       </section>
 
       <section id="artistas" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
-        <SectionTitle kicker={copy.sections.artistas} title={copy.artistsTitle} />
-        <div className="grid gap-6 md:grid-cols-2">
+        <SectionTitle title={copy.artistsTitle} subtitle={copy.possibleArtists.intro} />
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {artists.map((person) => (
             <PersonCard key={person.name} profile={person} locale={locale} />
           ))}
+          <motion.div
+            {...sectionAnim}
+            className="flex min-h-[280px] items-center justify-center rounded-2xl border border-dashed border-lime-200/25 bg-zinc-900/40 p-6 text-center"
+          >
+            <p className="text-lg font-semibold text-neutral-400">{copy.possibleArtists.placeholder}</p>
+          </motion.div>
         </div>
+        <motion.div {...sectionAnim} className="mt-12 rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-8 text-center md:p-10">
+          <h3 className="text-2xl font-black text-white md:text-3xl">{copy.possibleArtists.ctaHeading}</h3>
+          <p className="mt-3 mx-auto max-w-2xl text-neutral-400">{copy.possibleArtists.ctaSub}</p>
+          <Link
+            href="/artistas/aplicar"
+            className="mt-6 inline-flex rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-lime-200"
+          >
+            {copy.possibleArtists.ctaButton}
+          </Link>
+        </motion.div>
       </section>
 
       <section id="causa" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
@@ -368,6 +365,17 @@ export function FlowCdmxPage({
         <div className="grid gap-5 md:grid-cols-2">
           {causes.map((c) => (
             <motion.article key={c.title} {...sectionAnim} className="rounded-2xl border border-lime-200/15 bg-lime-100/[0.04] p-6">
+              {c.logo ? (
+                <div className="mb-6 flex min-h-[9rem] items-center justify-center md:min-h-[11rem]">
+                  <Image
+                    src={c.logo}
+                    alt={`Logo ${c.title}`}
+                    width={420}
+                    height={200}
+                    className="max-h-40 w-auto max-w-full object-contain md:max-h-48"
+                  />
+                </div>
+              ) : null}
               <h3 className="text-2xl font-black text-lime-100">{c.title}</h3>
               <p className="mt-3 leading-relaxed text-neutral-300">{c.body}</p>
             </motion.article>

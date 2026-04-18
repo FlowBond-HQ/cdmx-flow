@@ -4,7 +4,6 @@ import {
   causesEs,
   copyEs,
   partnersEs,
-  possibleArtistsEs,
   teamEs,
   ticketsEs,
 } from "@/lib/flow-cdmx-content";
@@ -17,7 +16,6 @@ export default function Home() {
       partners={partnersEs}
       team={teamEs}
       artists={artistsEs}
-      possibleArtists={possibleArtistsEs}
       causes={causesEs}
       tickets={ticketsEs}
     />

@@ -5,7 +5,7 @@ const TICKETS_COMING_SOON = "#registro-boletos";
 export const partnersShared: Omit<PartnerEntry, "description">[] = [
   {
     name: "ROVE Collective",
-    logo: "/flow-cdmx-assets/ROVE LOGOS/1.png",
+    logo: "/flow-cdmx-assets/ROVE LOGOS/1.png.png",
     links: [
       { label: "Instagram", href: "https://www.instagram.com/rovecollective/" },
       { label: "flowvallarta.com", href: "https://www.flowvallarta.com/" },
@@ -13,12 +13,12 @@ export const partnersShared: Omit<PartnerEntry, "description">[] = [
   },
   {
     name: "The Box Collective",
-    logo: "/flow-cdmx-assets/The box Collective LOGOS/1.png",
+    logo: "/flow-cdmx-assets/The box Collective LOGOS/1.png.png",
     links: [],
   },
   {
     name: "Ermantourage",
-    logo: "/flow-cdmx-assets/ERMANTOURAGE LOGOS/1.png",
+    logo: "/flow-cdmx-assets/ERMANTOURAGE LOGOS/2.png",
     links: [],
   },
   {
@@ -38,12 +38,12 @@ export const partnersShared: Omit<PartnerEntry, "description">[] = [
   },
   {
     name: "FlowBond",
-    logo: "/flow-cdmx-assets/FlowBond LOGOS/1.png",
+    logo: "/flow-cdmx-assets/FlowBond LOGOS/3.png",
     links: [{ label: "flowbond.app", href: "https://flowbond.app" }],
   },
   {
     name: "DANZ",
-    logo: "/flow-cdmx-assets/Danz LOGOS/1.png",
+    logo: "/flow-cdmx-assets/Danz LOGOS/3.png",
     links: [{ label: "danz.now", href: "https://danz.now" }],
   },
 ];
@@ -116,8 +116,6 @@ export const copyEs: FlowSiteCopy = {
   ticketsFootnote:
     "Estamos levantando una lista de interés para contacto y recaudación previa. En cuanto el checkout esté listo, conectaremos esta sección a la compra directa.",
   possibleArtists: {
-    kicker: "Artistas",
-    title: "Posibles artistas y panelistas",
     intro:
       "Una selección del talento que está dando forma al Flow. La curaduría completa se anuncia en los próximos días.",
     placeholder: "+ Más pronto",
@@ -175,8 +173,6 @@ export const copyEn: FlowSiteCopy = {
   ticketsFootnote:
     "To purchase or request an invoice, email events@flownation.world. A secure online checkout link will be added here as soon as it’s live.",
   possibleArtists: {
-    kicker: "Artists",
-    title: "Possible artists and panelists",
     intro: "A selection of the talent shaping Flow. Full curation announced in the coming days.",
     placeholder: "+ More soon",
     ctaHeading: "Are you an artist, filmmaker, or collaborator?",
@@ -197,10 +193,12 @@ export const causesEs: CauseEntry[] = [
   {
     title: "Yelapa Foundation",
     body: "Proteger y honrar el planeta Tierra a través de proyectos culturales y regenerativos dentro de comunidades indígenas, con un enfoque que parte de Yelapa y busca expandirse con modelos replicables de bienestar holístico y soberanía cultural.",
+    logo: "/flow-cdmx-assets/Yelapa Foundation LOGOS.png",
   },
   {
     title: "Festival de Cine Consciente",
     body: "Una plataforma cultural itinerante que une cine, sostenibilidad y comunidad. Su octava edición será en noviembre en la Ciudad de México — una invitación a sanación colectiva y conciencia socioambiental a través del cine.",
+    logo: "/flow-cdmx-assets/festival de Cine Consciente LOGOS.png",
   },
 ];
 
@@ -208,10 +206,12 @@ export const causesEn: CauseEntry[] = [
   {
     title: "Yelapa Foundation",
     body: "Protecting and honoring Planet Earth through cultural and regenerative projects within Indigenous communities — beginning in Yelapa with the intention to grow globally.",
+    logo: "/flow-cdmx-assets/Yelapa Foundation LOGOS.png",
   },
   {
     title: "Festival de Cine Consciente",
     body: "A traveling cultural platform uniting cinema, sustainability, and community. The 8th edition takes place in November in Mexico City — cinema as a catalyst for ecological awareness and collective care.",
+    logo: "/flow-cdmx-assets/festival de Cine Consciente LOGOS.png",
   },
 ];
 
@@ -291,7 +291,8 @@ export const teamEs: ProfileEntry[] = [
     name: "Steph Ferrera",
     role: "Fundadora, FlowBond · Arquitecta social",
     paragraphs: [
-      "Steph Ferrera diseña sistemas donde la experiencia humana se convierte en valor. Es arquitecta de nuevas economías en la intersección de tecnología, cultura y coordinación humana, enfocada en la tokenización de activos y experiencias del mundo real y en la creación de infraestructuras para el thriving humano a escala. Su trabajo se despliega en ecosistemas globales como BitBasel, Tulum Crypto Fest, LaBitConf, Devconnect, Token2049, Coinfest, ETH Denver y SXSW, donde participa como speaker, organizadora y artista, conectando innovación, comunidad y expresión cultural. Forma parte de una nueva generación de builders que están extendiendo la propiedad digital hacia la realidad física, contribuyendo a iniciativas que vinculan NFTs y artefactos culturales con sistemas de preservación a largo plazo, incluyendo misiones lunares y archivos en el espacio. Está construyendo una nueva capa económica donde la presencia, la interacción y la conexión humana se convierten en activos medibles y escalables.",
+      "Steph Ferrera diseña sistemas donde la experiencia humana se convierte en valor. Es arquitecta de nuevas economías en la intersección de tecnología, cultura y coordinación humana, enfocada en la tokenización de activos y experiencias del mundo real y en la creación de infraestructuras para el thriving humano a escala.",
+      "Su trabajo se despliega en ecosistemas globales como BitBasel, Tulum Crypto Fest, LaBitConf, Devconnect, Token2049, Coinfest, ETH Denver y SXSW, donde participa como speaker, organizadora y artista, conectando innovación, comunidad y expresión cultural. Forma parte de una nueva generación de builders que están extendiendo la propiedad digital hacia la realidad física, contribuyendo a iniciativas que vinculan NFTs y artefactos culturales con sistemas de preservación a largo plazo, incluyendo misiones lunares y archivos en el espacio. Está construyendo una nueva capa económica donde la presencia, la interacción y la conexión humana se convierten en activos medibles y escalables.",
     ],
     image: img.steph,
     links: [{ label: "Linktree · stepbystephBTM", href: "https://linktr.ee/stepbystephBTM" }],
@@ -379,7 +380,8 @@ export const teamEn: ProfileEntry[] = teamEs.map((m) => {
       ...m,
       role: "Founder, FlowBond · Social architect",
       paragraphs: [
-        "Steph Ferrera designs systems where human experience becomes value. An architect of new economies at the intersection of technology, culture and human coordination, focused on the tokenization of real-world assets and experiences, and on building infrastructures for human thriving at scale. Her work spans global ecosystems including BitBasel, Tulum Crypto Fest, LaBitConf, Devconnect, Token2049, Coinfest, ETH Denver, and SXSW, where she participates as speaker, organizer, and artist — connecting innovation, community, and cultural expression. She's part of a new generation of builders extending digital ownership into physical reality, contributing to initiatives that link NFTs and cultural artifacts with long-term preservation systems, including lunar missions and archives in space. She's building a new economic layer where presence, interaction, and human connection become measurable, scalable assets.",
+        "Steph Ferrera designs systems where human experience becomes value. An architect of new economies at the intersection of technology, culture and human coordination, focused on the tokenization of real-world assets and experiences, and on building infrastructures for human thriving at scale.",
+        "Her work spans global ecosystems including BitBasel, Tulum Crypto Fest, LaBitConf, Devconnect, Token2049, Coinfest, ETH Denver, and SXSW, where she participates as speaker, organizer, and artist — connecting innovation, community, and cultural expression. She's part of a new generation of builders extending digital ownership into physical reality, contributing to initiatives that link NFTs and cultural artifacts with long-term preservation systems, including lunar missions and archives in space. She's building a new economic layer where presence, interaction, and human connection become measurable, scalable assets.",
       ],
     },
     "Luna Tamayo": {
@@ -484,54 +486,6 @@ export const artistsEn: ProfileEntry[] = [
     links: [
       { label: "Website", href: "https://mscrissyj.com/" },
       { label: "Instagram · @mscrissyj", href: "https://www.instagram.com/mscrissyj/" },
-    ],
-  },
-];
-
-export const possibleArtistsEs: ProfileEntry[] = [
-  {
-    name: "Emmanuel Massú (El Chilo del Trapteño)",
-    role: "Cineasta & Rapero",
-    paragraphs: [
-      "Cineasta, cantautor y rapero sinaloense, nacido en Culiacán. Con 19 años en el medio ha fusionado el hip hop con paisajes sonoros del norte de México, creando el Trapteño. Co-dirigió el documental Los Plebes (2018), ganador de Selección Ahora México en FICUNAM 2021.",
-    ],
-    image: img.emmanuel,
-    links: [{ label: "Instagram · 11.3K followers", href: "https://www.instagram.com" }],
-  },
-  {
-    name: "Crissy J",
-    role: "Violinista · DJ · Curadora",
-    paragraphs: [
-      "Artista, violinista y DJ multi-género, curadora y activista enfocada en la conciencia y la conexión a través de la música. Ha participado en escenarios internacionales y ha creado experiencias innovadoras que combinan música, arte, comunidad y sanación.",
-    ],
-    image: img.crissy,
-    links: [
-      { label: "Sitio web", href: "https://mscrissyj.com/" },
-      { label: "Instagram · 45.2K followers", href: "https://www.instagram.com/mscrissyj/" },
-    ],
-  },
-];
-
-export const possibleArtistsEn: ProfileEntry[] = [
-  {
-    name: "Emmanuel Massú (El Chilo del Trapteño)",
-    role: "Filmmaker & Rapper",
-    paragraphs: [
-      "Filmmaker, singer-songwriter, and rapper from Sinaloa, born in Culiacán. With 19 years in the industry he has fused hip hop with soundscapes from northern Mexico, creating Trapteño. He co-directed the documentary Los Plebes (2018), winner of Selección Ahora México at FICUNAM 2021.",
-    ],
-    image: img.emmanuel,
-    links: [{ label: "Instagram · 11.3K followers", href: "https://www.instagram.com" }],
-  },
-  {
-    name: "Crissy J",
-    role: "Violinist · DJ · Curator",
-    paragraphs: [
-      "Artist, multi-genre violinist and DJ, curator and activist focused on awareness and connection through music. She has performed on international stages and has created innovative experiences that combine music, art, community, and healing.",
-    ],
-    image: img.crissy,
-    links: [
-      { label: "Website", href: "https://mscrissyj.com/" },
-      { label: "Instagram · 45.2K followers", href: "https://www.instagram.com/mscrissyj/" },
     ],
   },
 ];
