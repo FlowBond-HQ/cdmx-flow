@@ -115,6 +115,16 @@ export const copyEs: FlowSiteCopy = {
   ticketsLead: "Precios en pesos mexicanos (MXN). Cupo limitado.",
   ticketsFootnote:
     "Estamos levantando una lista de interés para contacto y recaudación previa. En cuanto el checkout esté listo, conectaremos esta sección a la compra directa.",
+  possibleArtists: {
+    kicker: "Artistas",
+    title: "Posibles artistas y panelistas",
+    intro:
+      "Una selección del talento que está dando forma al Flow. La curaduría completa se anuncia en los próximos días.",
+    placeholder: "+ Más pronto",
+    ctaHeading: "¿Eres artista, cineasta o colaborador?",
+    ctaSub: "Aplica para ser parte del Flow.",
+    ctaButton: "Aplicar como artista →",
+  },
   footer: {
     line1: "30 de abril · Huerto Roma Verde · CDMX",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
@@ -160,6 +170,15 @@ export const copyEn: FlowSiteCopy = {
   ticketsLead: "Pricing in Mexican Pesos (MXN). Limited capacity.",
   ticketsFootnote:
     "To purchase or request an invoice, email events@flownation.world. A secure online checkout link will be added here as soon as it’s live.",
+  possibleArtists: {
+    kicker: "Artists",
+    title: "Possible artists and panelists",
+    intro: "A selection of the talent shaping Flow. Full curation announced in the coming days.",
+    placeholder: "+ More soon",
+    ctaHeading: "Are you an artist, filmmaker, or collaborator?",
+    ctaSub: "Apply to be part of Flow.",
+    ctaButton: "Apply as artist →",
+  },
   footer: {
     line1: "April 30 · Huerto Roma Verde · Mexico City",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
@@ -457,6 +476,54 @@ export const artistsEn: ProfileEntry[] = [
     links: [
       { label: "Website", href: "https://mscrissyj.com/" },
       { label: "Instagram · @mscrissyj", href: "https://www.instagram.com/mscrissyj/" },
+    ],
+  },
+];
+
+export const possibleArtistsEs: ProfileEntry[] = [
+  {
+    name: "Emmanuel Massú (El Chilo del Trapteño)",
+    role: "Cineasta & Rapero",
+    paragraphs: [
+      "Cineasta, cantautor y rapero sinaloense, nacido en Culiacán. Con 19 años en el medio ha fusionado el hip hop con paisajes sonoros del norte de México, creando el Trapteño. Co-dirigió el documental Los Plebes (2018), ganador de Selección Ahora México en FICUNAM 2021.",
+    ],
+    image: img.emmanuel,
+    links: [{ label: "Instagram · 11.3K followers", href: "https://www.instagram.com" }],
+  },
+  {
+    name: "Crissy J",
+    role: "Violinista · DJ · Curadora",
+    paragraphs: [
+      "Artista, violinista y DJ multi-género, curadora y activista enfocada en la conciencia y la conexión a través de la música. Ha participado en escenarios internacionales y ha creado experiencias innovadoras que combinan música, arte, comunidad y sanación.",
+    ],
+    image: img.crissy,
+    links: [
+      { label: "Sitio web", href: "https://mscrissyj.com/" },
+      { label: "Instagram · 45.2K followers", href: "https://www.instagram.com/mscrissyj/" },
+    ],
+  },
+];
+
+export const possibleArtistsEn: ProfileEntry[] = [
+  {
+    name: "Emmanuel Massú (El Chilo del Trapteño)",
+    role: "Filmmaker & Rapper",
+    paragraphs: [
+      "Filmmaker, singer-songwriter, and rapper from Sinaloa, born in Culiacán. With 19 years in the industry he has fused hip hop with soundscapes from northern Mexico, creating Trapteño. He co-directed the documentary Los Plebes (2018), winner of Selección Ahora México at FICUNAM 2021.",
+    ],
+    image: img.emmanuel,
+    links: [{ label: "Instagram · 11.3K followers", href: "https://www.instagram.com" }],
+  },
+  {
+    name: "Crissy J",
+    role: "Violinist · DJ · Curator",
+    paragraphs: [
+      "Artist, multi-genre violinist and DJ, curator and activist focused on awareness and connection through music. She has performed on international stages and has created innovative experiences that combine music, art, community, and healing.",
+    ],
+    image: img.crissy,
+    links: [
+      { label: "Website", href: "https://mscrissyj.com/" },
+      { label: "Instagram · 45.2K followers", href: "https://www.instagram.com/mscrissyj/" },
     ],
   },
 ];

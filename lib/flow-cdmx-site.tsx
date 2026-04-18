@@ -64,6 +64,15 @@ export type FlowSiteCopy = {
   ticketsTitle: string;
   ticketsLead: string;
   ticketsFootnote?: string;
+  possibleArtists: {
+    kicker: string;
+    title: string;
+    intro: string;
+    placeholder: string;
+    ctaHeading: string;
+    ctaSub: string;
+    ctaButton: string;
+  };
   footer: { line1: string; rights: string };
 };
 
@@ -158,6 +167,7 @@ export function FlowCdmxPage({
   partners,
   team,
   artists,
+  possibleArtists,
   causes,
   tickets,
 }: {
@@ -166,6 +176,7 @@ export function FlowCdmxPage({
   partners: PartnerEntry[];
   team: ProfileEntry[];
   artists: ProfileEntry[];
+  possibleArtists: ProfileEntry[];
   causes: CauseEntry[];
   tickets: TicketTier[];
 }) {
@@ -264,6 +275,35 @@ export function FlowCdmxPage({
               {badge}
             </span>
           ))}
+        </motion.div>
+      </section>
+
+      <section id="posibles-artistas" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
+        <SectionTitle
+          kicker={copy.possibleArtists.kicker}
+          title={copy.possibleArtists.title}
+          subtitle={copy.possibleArtists.intro}
+        />
+        <div className="grid gap-6 md:grid-cols-3">
+          {possibleArtists.map((person) => (
+            <PersonCard key={person.name} profile={person} locale={locale} />
+          ))}
+          <motion.div
+            {...sectionAnim}
+            className="flex min-h-[280px] items-center justify-center rounded-2xl border border-dashed border-lime-200/25 bg-zinc-900/40 p-6 text-center"
+          >
+            <p className="text-lg font-semibold text-neutral-400">{copy.possibleArtists.placeholder}</p>
+          </motion.div>
+        </div>
+        <motion.div {...sectionAnim} className="mt-12 rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-8 text-center md:p-10">
+          <h3 className="text-2xl font-black text-white md:text-3xl">{copy.possibleArtists.ctaHeading}</h3>
+          <p className="mt-3 max-w-2xl mx-auto text-neutral-400">{copy.possibleArtists.ctaSub}</p>
+          <Link
+            href="/artistas/aplicar"
+            className="mt-6 inline-flex rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-lime-200"
+          >
+            {copy.possibleArtists.ctaButton}
+          </Link>
         </motion.div>
       </section>
 
