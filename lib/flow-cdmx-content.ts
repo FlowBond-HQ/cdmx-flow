@@ -1,6 +1,6 @@
 import type { CauseEntry, FlowSiteCopy, PartnerEntry, ProfileEntry, TicketTier } from "./flow-cdmx-site";
 
-const TICKETS_COMING_SOON = "#registro-boletos";
+const TICKETS_CHECKOUT = "#registro-boletos";
 
 export const partnersShared: Omit<PartnerEntry, "description">[] = [
   {
@@ -77,7 +77,7 @@ export const partnersEn: PartnerEntry[] = partnersShared.map((p, i) => {
 });
 
 export const copyEs: FlowSiteCopy = {
-  metaTitle: "FLOW CDMX — 30 de abril, Huerto Roma Verde",
+  metaTitle: "FLOW CDMX — 30 y 31 de mayo · Ciudad de México",
   nav: { labelEs: "Español", labelEn: "English", hrefEs: "/", hrefEn: "/sundance-mexico-city" },
   sections: {
     about: "Evento",
@@ -88,22 +88,22 @@ export const copyEs: FlowSiteCopy = {
     tickets: "Boletos",
   },
   hero: {
-    kicker: "30 de abril · Huerto Roma Verde · Ciudad de México",
+    kicker: "30–31 de mayo · Sede por anunciar · CDMX",
     title: "FLOW CDMX",
-    lead: "Un encuentro cultural paralelo a Sundance CDMX que celebra el futuro del cine, la creatividad y la cultura consciente en México — con proyecciones, paneles, música, bienestar y comunidad en un solo día.",
-    cta: "Boletos",
+    lead: "Parte de la experiencia Flow multi-ciudad: CDMX · Austin · Vallarta · Los Ángeles. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
+    cta: "Lista de espera",
     ctaSecondary: { label: "English version", href: "/sundance-mexico-city" },
   },
   about: {
     kicker: "Sobre el evento",
-    title: "Un día completo de cine, música y cultura consciente",
+    title: "Dos días de cine, música y tecnología regenerativa",
     paragraphs: [
-      "Este evento está concebido como un encuentro cultural paralelo a Sundance CDMX que celebra el futuro del cine, la creatividad y la cultura consciente en México. Tendrá lugar en Huerto Roma Verde el 30 de abril y reunirá a cineastas, artistas, medios, músicos, líderes de bienestar, emprendedores y referentes culturales para vivir una experiencia inmersiva de día y noche.",
+      "Flow CDMX es la primera parada de una experiencia cultural multi-ciudad diseñada para celebrar el futuro del cine, la música y la tecnología regenerativa. Los días 30 y 31 de mayo, Ciudad de México se convierte en el primer nodo de Flow Nation: una plataforma en expansión que conecta creadores, artistas, cineastas, músicos, líderes de bienestar y builders de tecnología regenerativa para vivir una experiencia inmersiva de dos días.",
       "La programación incluye proyecciones, conversaciones grabadas, entrevistas en vivo, música, DJs y experiencias comunitarias. Entre las activaciones previstas están paneles, círculo de cacao, breathwork, Ecstatic DANZ y momentos FlowBond — siempre con un tono cálido, curado y presente.",
-      "Diseñado para elevar el movimiento creativo de México en un escenario global, el evento funciona como plataforma y catalizador: destacando voces emergentes, fortaleciendo conexiones culturales entre México, Estados Unidos y otros países, y creando oportunidades significativas para patrocinadores, medios y colaboradores alineados con una audiencia de alto impacto y propósito.",
+      "Diseñado para elevar el movimiento creativo de México en un escenario global, Flow CDMX funciona como plataforma y catalizador: destacando voces emergentes, fortaleciendo conexiones entre CDMX, Austin, Los Ángeles, Puerto Vallarta y más, y creando oportunidades significativas para patrocinadores, medios y colaboradores alineados con una audiencia de alto impacto y propósito.",
       "A través de este encuentro también apoyamos a Yelapa Foundation y al Festival de Cine Consciente, impulsando iniciativas enfocadas en impacto social, consciencia, comunidad y narrativas con propósito.",
     ],
-    badges: ["Cine", "Música", "Bienestar", "Comunidad", "Tecnología"],
+    badges: ["Cine", "Música", "Bienestar", "Comunidad", "Tecnología Regenerativa"],
   },
   partnersTitle: "Aliados y organizaciones",
   partnersSubtitle: "Quienes hacen posible esta experiencia.",
@@ -114,7 +114,7 @@ export const copyEs: FlowSiteCopy = {
   ticketsTitle: "Boletos",
   ticketsLead: "Precios en pesos mexicanos (MXN). Cupo limitado.",
   ticketsFootnote:
-    "Estamos levantando una lista de interés para contacto y recaudación previa. En cuanto el checkout esté listo, conectaremos esta sección a la compra directa.",
+    "Únete a la lista de espera y te avisaremos en cuanto los boletos estén disponibles.",
   possibleArtists: {
     intro:
       "Una selección del talento que está dando forma al Flow. La curaduría completa se anuncia en los próximos días.",
@@ -125,16 +125,16 @@ export const copyEs: FlowSiteCopy = {
   },
   program: {
     title: "Programa",
-    body: "El programa completo del día se anuncia pronto.",
+    body: "El programa completo de los dos días se anuncia pronto.",
   },
   footer: {
-    line1: "30 de abril · Huerto Roma Verde · CDMX",
+    line1: "30–31 de mayo · Sede por anunciar · CDMX",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
   },
 };
 
 export const copyEn: FlowSiteCopy = {
-  metaTitle: "FLOW CDMX — Sundance Mexico City Side Experience",
+  metaTitle: "FLOW CDMX — May 30–31 · Mexico City",
   nav: { labelEs: "Español", labelEn: "English", hrefEs: "/", hrefEn: "/sundance-mexico-city" },
   sections: {
     about: "Experience",
@@ -145,22 +145,22 @@ export const copyEn: FlowSiteCopy = {
     tickets: "Tickets",
   },
   hero: {
-    kicker: "April 30 · Huerto Roma Verde · Mexico City",
+    kicker: "May 30–31 · Venue TBA · Mexico City",
     title: "FLOW CDMX",
-    lead: "A curated cultural side experience during Sundance CDMX week — film, music, wellness, and community in one immersive day and night at Huerto Roma Verde.",
-    cta: "Get tickets",
+    lead: "Part of the Flow multi-city experience: CDMX · Austin · Vallarta · Los Angeles. Film, music, and regenerative technology. Tickets coming soon — join the waitlist.",
+    cta: "Join waitlist",
     ctaSecondary: { label: "Versión en español", href: "/" },
   },
   about: {
-    kicker: "Sundance Mexico City",
-    title: "Film, music, and conscious culture — built for connection",
+    kicker: "Flow Nation · CDMX",
+    title: "Film, music & regenerative tech — built for connection",
     paragraphs: [
-      "FLOW CDMX is an independent cultural gathering running parallel to Sundance CDMX — celebrating the future of film, creativity, and conscious culture in Mexico. On April 30, Huerto Roma Verde becomes a meeting ground for filmmakers, artists, media, musicians, wellness leaders, founders, and cultural producers for a fully immersive day-to-night experience.",
-      "Expect screenings, recorded conversations, live interviews, music, DJs, and community-led moments — including panels, a cacao circle, breathwork, Ecstatic DANZ, and FlowBond activations. The tone is intimate, elevated, and human: less “conference,” more living room for culture.",
-      "The positioning is creativity, consciousness, and collaboration — a platform that highlights emerging voices, strengthens cross-border connections (Mexico, the US, and beyond), and creates meaningful opportunities for sponsors, media, and partners who care about high-trust audiences.",
+      "FLOW CDMX is the first stop on a multi-city cultural journey built around film, music, and regenerative technology. On May 30–31, Mexico City becomes the first node of Flow Nation — a growing platform connecting creators, artists, filmmakers, musicians, wellness leaders, and regenerative tech builders for a fully immersive two-day experience.",
+      "Expect screenings, recorded conversations, live interviews, music, DJs, and community-led moments — including panels, a cacao circle, breathwork, Ecstatic DANZ, and FlowBond activations. The tone is intimate, elevated, and human: less conference, more living room for culture.",
+      "The positioning is creativity, consciousness, and regenerative collaboration — a platform that highlights emerging voices, strengthens cross-border connections across CDMX, Austin, Los Angeles, Puerto Vallarta, and beyond, and creates meaningful opportunities for sponsors, media, and partners aligned with high-trust audiences.",
       "A portion of the gathering supports Yelapa Foundation and Festival de Cine Consciente — initiatives focused on social impact, storytelling, and community-forward culture.",
     ],
-    badges: ["Film", "Music", "Wellness", "Community", "Technology"],
+    badges: ["Film", "Music", "Wellness", "Community", "Regenerative Tech"],
   },
   partnersTitle: "Partners & organizations",
   partnersSubtitle: "The network behind the experience.",
@@ -171,7 +171,7 @@ export const copyEn: FlowSiteCopy = {
   ticketsTitle: "Tickets",
   ticketsLead: "Pricing in Mexican Pesos (MXN). Limited capacity.",
   ticketsFootnote:
-    "To purchase or request an invoice, email events@flownation.world. A secure online checkout link will be added here as soon as it’s live.",
+    "Join the waitlist and we’ll notify you as soon as tickets are available.",
   possibleArtists: {
     intro: "A selection of the talent shaping Flow. Full curation announced in the coming days.",
     placeholder: "+ More soon",
@@ -181,10 +181,10 @@ export const copyEn: FlowSiteCopy = {
   },
   program: {
     title: "Program",
-    body: "The full day's program will be announced soon.",
+    body: "The full two-day program will be announced soon.",
   },
   footer: {
-    line1: "April 30 · Huerto Roma Verde · Mexico City",
+    line1: "May 30–31 · Venue TBA · Mexico City",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
   },
 };
@@ -220,9 +220,9 @@ export const ticketsEs: TicketTier[] = [
     name: "Entrada general",
     priceLabel: "$333 MXN",
     secondaryLine: "En puerta: $400 MXN",
-    description: "Acceso al día completo de programación en Huerto Roma Verde. Ideal para vivir el encuentro con ritmo propio.",
-    ctaLabel: "Link de boletos coming soon",
-    ctaHref: TICKETS_COMING_SOON,
+    description: "Acceso a los dos días de programación en CDMX — proyecciones, conversaciones, música y momentos de comunidad.",
+    ctaLabel: "Comprar",
+    ctaHref: TICKETS_CHECKOUT,
   },
   {
     name: "Supporter pass",
@@ -232,8 +232,8 @@ export const ticketsEs: TicketTier[] = [
       "Incluye bebidas en el evento y apoya de forma directa la producción y el impacto social del encuentro. Experiencia ampliada para quienes quieren estar más cerca del proyecto.",
     featured: true,
     featuredBadge: "Bebidas incluidas",
-    ctaLabel: "Link de boletos coming soon",
-    ctaHref: TICKETS_COMING_SOON,
+    ctaLabel: "Comprar",
+    ctaHref: TICKETS_CHECKOUT,
   },
 ];
 
@@ -242,9 +242,9 @@ export const ticketsEn: TicketTier[] = [
     name: "General admission",
     priceLabel: "$333 MXN",
     secondaryLine: "At door: $400 MXN",
-    description: "Full-day access to programming at Huerto Roma Verde — screenings, conversations, music, and community moments.",
-    ctaLabel: "Ticket link coming soon",
-    ctaHref: TICKETS_COMING_SOON,
+    description: "Two-day access to programming in Mexico City — screenings, conversations, music, and community moments.",
+    ctaLabel: "Buy",
+    ctaHref: TICKETS_CHECKOUT,
   },
   {
     name: "Supporter pass",
@@ -254,8 +254,8 @@ export const ticketsEn: TicketTier[] = [
       "Includes drinks at the event and directly supports production and social impact. For guests who want to go deeper and help the project scale with intention.",
     featured: true,
     featuredBadge: "Drinks included",
-    ctaLabel: "Ticket link coming soon",
-    ctaHref: TICKETS_COMING_SOON,
+    ctaLabel: "Buy",
+    ctaHref: TICKETS_CHECKOUT,
   },
 ];
 
@@ -429,7 +429,7 @@ export const teamEn: ProfileEntry[] = teamEs.map((m) => {
       ...m,
       role: "Filmmaker · Founder, Ermantourage",
       paragraphs: [
-        "Virginia Beach born, Hollywood raised. Founder of Ermantourage — a career built around bringing people together through story. Named a “Top Networker in Hollywood” by The Huffington Post at 26.",
+        "Virginia Beach born, Hollywood raised. Founder of Ermantourage — a career built around bringing people together through story. Named a \"Top Networker in Hollywood\" by The Huffington Post at 26.",
         "He’s produced industry-facing experiences across Los Angeles, New York, London, Miami, Toronto, and beyond — film, community, and conversation as doorways.",
       ],
     },
