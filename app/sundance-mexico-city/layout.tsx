@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 const siteUrl = "https://cdmx.flownation.world";
 
 export const metadata: Metadata = {
-  title: "Sundance Mexico City · FLOW CDMX (EN)",
+  title: "FLOW CDMX · May 30–31 (EN)",
   description:
-    "FLOW CDMX — a curated cultural side experience during Sundance CDMX week. April 30 at Huerto Roma Verde. Film, music, wellness, and community.",
+    "FLOW CDMX — a multi-city cultural experience at the intersection of film, music, and regenerative technology. May 30–31 in Mexico City. Venue TBA.",
   alternates: {
     canonical: "/sundance-mexico-city",
     languages: {
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${siteUrl}/sundance-mexico-city`,
-    title: "FLOW CDMX · Sundance Mexico City",
+    title: "FLOW CDMX · May 30–31 · Mexico City",
     description:
-      "A curated side experience during Sundance CDMX week — April 30 at Huerto Roma Verde, Mexico City.",
+      "A multi-city cultural experience — film, music, and regenerative technology. May 30–31 in Mexico City, venue TBA.",
   },
 };
 

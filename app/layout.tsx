@@ -22,15 +22,15 @@ export const metadata: Metadata = {
     template: "%s | FLOW CDMX",
   },
   description:
-    "FLOW CDMX — encuentro cultural el 30 de abril en Huerto Roma Verde, Ciudad de México. Cine, música, bienestar y comunidad. Boletos en MXN.",
+    "FLOW CDMX — 30 y 31 de mayo en Ciudad de México. Cine, música y tecnología regenerativa. Primer nodo de Flow Nation. Únete a la lista de espera.",
   keywords: [
     "FLOW CDMX",
     "Flow Nation",
     "Ciudad de México",
     "CDMX",
-    "Huerto Roma Verde",
-    "Sundance CDMX",
     "cine",
+    "música",
+    "tecnología regenerativa",
     "cultura consciente",
     "evento",
   ],
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     siteName: "Flow Nation",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "30 de abril · Huerto Roma Verde · Ciudad de México. Cine, música, bienestar y comunidad — público local, narrativa en español.",
+      "30–31 de mayo · Sede por anunciar · CDMX. Cine, música y tecnología regenerativa — primer nodo de Flow Nation.",
   },
   twitter: {
     card: "summary_large_image",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "30 de abril · Huerto Roma Verde · Ciudad de México. Boletos desde $222 MXN.",
+      "30–31 de mayo · CDMX. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
   },
   robots: {
     index: true,

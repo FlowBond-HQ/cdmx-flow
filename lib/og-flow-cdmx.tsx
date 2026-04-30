@@ -5,7 +5,7 @@ export const OG_BG = "#000000";
 export const OG_LIME = "#D0FF5E";
 
 const HERO_LEAD =
-  "Un encuentro cultural paralelo a Sundance CDMX que celebra el futuro del cine, la creatividad y la cultura consciente en México — con proyecciones, paneles, música, bienestar y comunidad en un solo día.";
+  "Cine · Música · Tecnología Regenerativa. Primer nodo de Flow Nation — CDMX · Austin · Vallarta · Los Ángeles.";
 
 export function flowCdmxOgImageResponse() {
   return new ImageResponse(
@@ -43,7 +43,7 @@ export function flowCdmxOgImageResponse() {
               marginBottom: 20,
             }}
           >
-            30 DE ABRIL · HUERTO ROMA VERDE · CIUDAD DE MÉXICO
+            30–31 DE MAYO · SEDE POR ANUNCIAR · CDMX
           </div>
           <div
             style={{
