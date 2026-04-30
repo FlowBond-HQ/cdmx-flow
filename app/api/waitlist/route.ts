@@ -31,10 +31,12 @@ export async function POST(request: Request) {
   const b = body as Record<string, unknown>;
   const name = typeof b.name === "string" ? b.name.trim() : "";
   const email = typeof b.email === "string" ? b.email.trim().toLowerCase() : "";
-  const interest = typeof b.interest === "string" ? b.interest.trim() : "";
+  const ticket_tier = typeof b.ticket_tier === "string" ? b.ticket_tier.trim() : "";
+  const phone = typeof b.phone === "string" ? b.phone.trim() : null;
   const notesRaw = typeof b.notes === "string" || b.notes === null ? b.notes : "";
   const notes = notesRaw === null || notesRaw === "" ? null : String(notesRaw).slice(0, MAX_NOTES);
   const locale = b.locale === "en" || b.locale === "es" ? b.locale : null;
+  const city = typeof b.city === "string" ? b.city.trim() : null;
 
   if (!name || name.length > MAX_NAME) {
     return NextResponse.json({ error: "Name is required." }, { status: 400 });
@@ -42,8 +44,8 @@ export async function POST(request: Request) {
   if (!email || !isValidEmail(email)) {
     return NextResponse.json({ error: "A valid email is required." }, { status: 400 });
   }
-  if (!interest) {
-    return NextResponse.json({ error: "Ticket interest is required." }, { status: 400 });
+  if (!ticket_tier) {
+    return NextResponse.json({ error: "Ticket tier is required." }, { status: 400 });
   }
   if (!locale) {
     return NextResponse.json({ error: "Locale is required." }, { status: 400 });
@@ -54,9 +56,12 @@ export async function POST(request: Request) {
     .insert({
       name,
       email,
-      interest,
+      interest: ticket_tier,
+      ticket_tier,
+      phone: phone || null,
       notes,
       locale,
+      city: city || null,
       source: "flow_cdmx_site",
     })
     .select("id")

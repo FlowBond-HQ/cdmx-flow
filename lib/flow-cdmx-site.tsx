@@ -5,6 +5,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
 
+// Flip to true when checkout is live — CTAs swap from waitlist to purchase
+const TICKETS_LIVE = false;
+
 export type SiteLink = { label: string; href: string };
 
 export type PartnerEntry = {
@@ -189,11 +192,16 @@ export function FlowCdmxPage({
   const [ticketSubmitted, setTicketSubmitted] = useState(false);
   const [ticketSubmitting, setTicketSubmitting] = useState(false);
   const [ticketError, setTicketError] = useState<string | null>(null);
-  const [ticketForm, setTicketForm] = useState({ name: "", email: "", interest: "", notes: "" });
+  const [ticketForm, setTicketForm] = useState({ name: "", email: "", phone: "", ticket_tier: "", notes: "" });
+
+  const openWaitlist = (tierName: string) => {
+    setTicketForm((s) => ({ ...s, ticket_tier: tierName }));
+    document.getElementById("registro-boletos")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const onTicketSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!ticketForm.name || !ticketForm.email || !ticketForm.interest) return;
+    if (!ticketForm.name || !ticketForm.email || !ticketForm.ticket_tier) return;
     setTicketError(null);
     setTicketSubmitting(true);
     try {
@@ -203,9 +211,11 @@ export function FlowCdmxPage({
         body: JSON.stringify({
           name: ticketForm.name.trim(),
           email: ticketForm.email.trim(),
-          interest: ticketForm.interest,
+          phone: ticketForm.phone.trim() || null,
+          ticket_tier: ticketForm.ticket_tier,
           notes: ticketForm.notes.trim() || null,
           locale,
+          city: "CDMX",
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { error?: string; ok?: boolean };
@@ -457,15 +467,26 @@ export function FlowCdmxPage({
                 <p className="mt-2 text-sm tabular-nums text-neutral-400">{t.secondaryLine}</p>
               ) : null}
               <p className="mt-4 text-sm leading-relaxed text-neutral-400">{t.description}</p>
-              <button
-                type="button"
-                className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
-                  t.featured ? "bg-lime-300 text-zinc-950 hover:bg-lime-200" : "border border-lime-300/40 text-lime-200 hover:bg-lime-300/10"
-                }`}
-                onClick={() => document.getElementById("registro-boletos")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                {t.ctaLabel}
-              </button>
+              {TICKETS_LIVE ? (
+                <a
+                  href={t.ctaHref}
+                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
+                    t.featured ? "bg-lime-300 text-zinc-950 hover:bg-lime-200" : "border border-lime-300/40 text-lime-200 hover:bg-lime-300/10"
+                  }`}
+                >
+                  {t.ctaLabel}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
+                    t.featured ? "bg-lime-300 text-zinc-950 hover:bg-lime-200" : "border border-lime-300/40 text-lime-200 hover:bg-lime-300/10"
+                  }`}
+                  onClick={() => openWaitlist(t.name)}
+                >
+                  {locale === "es" ? "Únete a la lista de espera" : "Join the waitlist"}
+                </button>
+              )}
             </motion.article>
           ))}
         </div>
@@ -475,12 +496,12 @@ export function FlowCdmxPage({
           className="mt-10 rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 md:p-8"
         >
           <h3 className="text-xl font-bold text-white">
-            {locale === "es" ? "Link de boletos coming soon" : "Ticket link coming soon"}
+            {locale === "es" ? "Únete a la lista de espera" : "Join the waitlist"}
           </h3>
           <p className="mt-2 text-sm text-neutral-400">
             {locale === "es"
-              ? "Mientras activamos el checkout, deja tus datos para enviarte el enlace de compra en cuanto esté listo."
-              : "While checkout goes live, leave your details and we will send you the direct purchase link as soon as it is ready."}
+              ? "Selecciona tu boleto y deja tus datos — te avisamos en cuanto estén disponibles."
+              : "Select your ticket and leave your details — we'll notify you as soon as they're available."}
           </p>
 
           <div className="mt-6 grid gap-4 rounded-2xl border border-lime-200/10 bg-black/25 p-4 md:grid-cols-2">
@@ -543,16 +564,23 @@ export function FlowCdmxPage({
                 className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60"
                 required
               />
+              <input
+                type="tel"
+                placeholder={locale === "es" ? "Teléfono (opcional)" : "Phone (optional)"}
+                value={ticketForm.phone}
+                onChange={(e) => setTicketForm((s) => ({ ...s, phone: e.target.value }))}
+                className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
+              />
               <select
-                value={ticketForm.interest}
-                onChange={(e) => setTicketForm((s) => ({ ...s, interest: e.target.value }))}
+                value={ticketForm.ticket_tier}
+                onChange={(e) => setTicketForm((s) => ({ ...s, ticket_tier: e.target.value }))}
                 className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-lime-300/60 md:col-span-2"
                 required
               >
-                <option value="">{locale === "es" ? "Me interesa..." : "I am interested in..."}</option>
+                <option value="">{locale === "es" ? "Selecciona tu boleto..." : "Select your ticket..."}</option>
                 {tickets.map((t) => (
                   <option key={t.name} value={t.name}>
-                    {t.name}
+                    {t.name} — {t.priceLabel}
                   </option>
                 ))}
               </select>
@@ -572,15 +600,15 @@ export function FlowCdmxPage({
                     ? "Enviando…"
                     : "Sending…"
                   : locale === "es"
-                    ? "Registrarme para boletos"
-                    : "Join ticket waitlist"}
+                    ? "Únete a la lista de espera"
+                    : "Join the waitlist"}
               </button>
             </form>
           ) : (
-            <p className="mt-4 text-sm text-lime-200">
+            <p className="mt-4 text-sm font-medium text-lime-200">
               {locale === "es"
-                ? "Gracias. Te contactaremos apenas esté activo el link de compra."
-                : "Thank you. We will contact you as soon as the ticket link is live."}
+                ? "Te avisaremos en cuanto los boletos estén disponibles 🌊"
+                : "We'll notify you as soon as tickets are available 🌊"}
             </p>
           )}
         </motion.div>
