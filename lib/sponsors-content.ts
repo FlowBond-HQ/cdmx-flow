@@ -79,7 +79,7 @@ export const sponsorsCopyEs: SponsorsCopy = {
   heroTitle: "Patrocina Flow CDMX — Experiencia Cultural Multi-Ciudad",
   introParagraphs: [
     "Flow CDMX es una experiencia cultural de dos días en la intersección del cine, la música y la tecnología regenerativa. El primer nodo de Flow Nation — una plataforma en expansión que conecta CDMX, Austin, Los Ángeles, Puerto Vallarta y más.",
-    "Los días 30 y 31 de mayo reuniremos a cineastas, artistas, músicos, líderes de bienestar, builders de tecnología regenerativa, medios y marcas conscientes para dos días de creatividad, conexión y cultura viva.",
+    "En junio reuniremos a cineastas, artistas, músicos, líderes de bienestar, builders de tecnología regenerativa, medios y marcas conscientes para dos días de creatividad, conexión y cultura viva.",
     "Al patrocinar Flow CDMX, tu marca no solo está apoyando un evento: está alineándose con un ecosistema internacional de creadores con propósito — cine, música, tecnología y comunidad en un solo movimiento.",
     "También queremos fomentar más intercambio cultural y turismo consciente dentro de México y más allá, invitando a colaboradores, artistas, marcas, medios y líderes creativos de distintas partes del país (y del mundo) a participar, conectar y construir juntos.",
   ],
@@ -259,7 +259,7 @@ export const sponsorsCopyEs: SponsorsCopy = {
     "Los add-ons opcionales pueden incluir electricidad, mobiliario extra, menciones adicionales en redes o ubicación premium.",
   closingTitle: "Construyamos Algo Significativo Juntos",
   closingBody:
-    "Estamos confirmando patrocinadores, vendors, colaboradores y partners comunitarios para el 30 y 31 de mayo en CDMX. Si te interesa explorar un patrocinio, activación personalizada o alianza de medios, nos encantaría conectar.",
+    "Estamos confirmando patrocinadores, vendors, colaboradores y partners comunitarios para junio en CDMX. Si te interesa explorar un patrocinio, activación personalizada o alianza de medios, nos encantaría conectar.",
   formTitle: "Solicitud de información",
   formLead: "Cuéntanos sobre tu marca o proyecto. Te respondemos por correo.",
   formSuccess: "Gracias. Recibimos tu mensaje y te contactaremos pronto.",
@@ -296,7 +296,7 @@ export const sponsorsCopyEn: SponsorsCopy = {
   heroTitle: "Sponsor Flow CDMX — Multi-City Cultural Experience",
   introParagraphs: [
     "Flow CDMX is a two-day cultural experience at the intersection of film, music, and regenerative technology. The first node of Flow Nation — an expanding platform connecting CDMX, Austin, Los Angeles, Puerto Vallarta, and more.",
-    "On May 30–31, we’re bringing together filmmakers, artists, musicians, wellness leaders, regenerative tech builders, media, and conscious brands for two days of creativity, connection, and living culture.",
+    "In June, we’re bringing together filmmakers, artists, musicians, wellness leaders, regenerative tech builders, media, and conscious brands for two days of creativity, connection, and living culture.",
     "By sponsoring Flow CDMX, your brand isn’t only supporting an event — you’re aligning with an international ecosystem of purpose-driven creators: film, music, technology, and community moving as one.",
     "We also want to foster more cultural exchange and conscious tourism within Mexico and beyond, inviting collaborators, artists, brands, media, and creative leaders from across the country (and the world) to participate, connect, and build together.",
   ],
@@ -475,7 +475,7 @@ export const sponsorsCopyEn: SponsorsCopy = {
     "Optional add-ons can include power, extra furniture, additional social mentions, or premium placement.",
   closingTitle: "Let’s Build Something Meaningful Together",
   closingBody:
-    "We’re currently confirming sponsors, vendors, collaborators, and community partners for May 30–31 in Mexico City. If you’d like to explore sponsorship, a custom activation, or a media partnership, we’d love to connect.",
+    "We’re currently confirming sponsors, vendors, collaborators, and community partners for June in Mexico City. If you’d like to explore sponsorship, a custom activation, or a media partnership, we’d love to connect.",
   formTitle: "Inquiry form",
   formLead: "Tell us about your brand or project. We will follow up by email.",
   formSuccess: "Thank you — we received your message and will be in touch soon.",

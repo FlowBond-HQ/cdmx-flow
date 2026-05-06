@@ -43,7 +43,7 @@ export function flowCdmxOgImageResponse() {
               marginBottom: 20,
             }}
           >
-            30–31 DE MAYO · SEDE POR ANUNCIAR · CDMX
+            JUNIO · SEDE POR ANUNCIAR · CDMX
           </div>
           <div
             style={{
