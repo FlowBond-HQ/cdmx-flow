@@ -5,7 +5,6 @@ import {
   copyEs,
   partnersEs,
   teamEs,
-  ticketsEs,
 } from "@/lib/flow-cdmx-content";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
       team={teamEs}
       artists={artistsEs}
       causes={causesEs}
-      tickets={ticketsEs}
     />
   );
 }

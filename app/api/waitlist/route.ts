@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 const MAX_NAME = 200;
-const MAX_NOTES = 4000;
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -31,10 +30,9 @@ export async function POST(request: Request) {
   const b = body as Record<string, unknown>;
   const name = typeof b.name === "string" ? b.name.trim() : "";
   const email = typeof b.email === "string" ? b.email.trim().toLowerCase() : "";
-  const ticket_tier = typeof b.ticket_tier === "string" ? b.ticket_tier.trim() : "";
   const phone = typeof b.phone === "string" ? b.phone.trim() : null;
-  const notesRaw = typeof b.notes === "string" || b.notes === null ? b.notes : "";
-  const notes = notesRaw === null || notesRaw === "" ? null : String(notesRaw).slice(0, MAX_NOTES);
+  const heard_from = typeof b.heard_from === "string" ? b.heard_from.trim() : null;
+  const based_in = typeof b.based_in === "string" ? b.based_in.trim() : null;
   const locale = b.locale === "en" || b.locale === "es" ? b.locale : null;
   const city = typeof b.city === "string" ? b.city.trim() : null;
 
@@ -44,8 +42,14 @@ export async function POST(request: Request) {
   if (!email || !isValidEmail(email)) {
     return NextResponse.json({ error: "A valid email is required." }, { status: 400 });
   }
-  if (!ticket_tier) {
-    return NextResponse.json({ error: "Ticket tier is required." }, { status: 400 });
+  if (!phone) {
+    return NextResponse.json({ error: "Phone number is required." }, { status: 400 });
+  }
+  if (!heard_from) {
+    return NextResponse.json({ error: "Please let us know how you heard about Flow." }, { status: 400 });
+  }
+  if (!based_in) {
+    return NextResponse.json({ error: "Please let us know where you're based." }, { status: 400 });
   }
   if (!locale) {
     return NextResponse.json({ error: "Locale is required." }, { status: 400 });
@@ -56,10 +60,11 @@ export async function POST(request: Request) {
     .insert({
       name,
       email,
-      interest: ticket_tier,
-      ticket_tier,
-      phone: phone || null,
-      notes,
+      interest: "registration",
+      ticket_tier: "registration",
+      phone,
+      heard_from,
+      based_in,
       locale,
       city: city || null,
       source: "flow_cdmx_site",

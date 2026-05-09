@@ -5,7 +5,6 @@ import {
   copyEn,
   partnersEn,
   teamEn,
-  ticketsEn,
 } from "@/lib/flow-cdmx-content";
 
 export default function SundanceMexicoCityPage() {
@@ -17,7 +16,6 @@ export default function SundanceMexicoCityPage() {
       team={teamEn}
       artists={artistsEn}
       causes={causesEn}
-      tickets={ticketsEn}
     />
   );
 }

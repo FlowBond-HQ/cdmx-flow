@@ -77,7 +77,7 @@ export const partnersEn: PartnerEntry[] = partnersShared.map((p, i) => {
 });
 
 export const copyEs: FlowSiteCopy = {
-  metaTitle: "FLOW CDMX — Junio · Ciudad de México",
+  metaTitle: "FLOW CDMX — 19-21 Junio · Ciudad de México",
   nav: { labelEs: "Español", labelEn: "English", hrefEs: "/", hrefEn: "/sundance-mexico-city" },
   sections: {
     about: "Evento",
@@ -85,20 +85,20 @@ export const copyEs: FlowSiteCopy = {
     equipo: "Equipo",
     artistas: "Artistas",
     causa: "Impacto",
-    tickets: "Boletos",
+    tickets: "Registro",
   },
   hero: {
-    kicker: "Junio · Sede por anunciar · CDMX",
+    kicker: "19-21 Junio · Sede por anunciar · CDMX",
     title: "FLOW CDMX",
-    lead: "Parte de la experiencia Flow multi-ciudad: CDMX · Austin · Vallarta · Los Ángeles. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
-    cta: "Lista de espera",
+    lead: "Parte de la experiencia Flow multi-ciudad: CDMX · Austin · Vallarta · Los Ángeles. Cine, música y tecnología regenerativa. Regístrate para recibir acceso prioritario cuando los boletos estén disponibles.",
+    cta: "Regístrate",
     ctaSecondary: { label: "English version", href: "/sundance-mexico-city" },
   },
   about: {
     kicker: "Sobre el evento",
-    title: "Dos días de cine, música y tecnología regenerativa",
+    title: "Tres días de cine, música y tecnología regenerativa",
     paragraphs: [
-      "Flow CDMX es la primera parada de una experiencia cultural multi-ciudad diseñada para celebrar el futuro del cine, la música y la tecnología regenerativa. En junio, Ciudad de México se convierte en el primer nodo de Flow Nation: una plataforma en expansión que conecta creadores, artistas, cineastas, músicos, líderes de bienestar y builders de tecnología regenerativa para vivir una experiencia inmersiva de dos días.",
+      "Flow CDMX es la primera parada de una experiencia cultural multi-ciudad diseñada para celebrar el futuro del cine, la música y la tecnología regenerativa. Del 19 al 21 de junio, Ciudad de México se convierte en el primer nodo de Flow Nation: una plataforma en expansión que conecta creadores, artistas, cineastas, músicos, líderes de bienestar y builders de tecnología regenerativa para vivir una experiencia inmersiva de tres días.",
       "La programación incluye proyecciones, conversaciones grabadas, entrevistas en vivo, música, DJs y experiencias comunitarias. Entre las activaciones previstas están paneles, círculo de cacao, breathwork, Ecstatic DANZ y momentos FlowBond — siempre con un tono cálido, curado y presente.",
       "Diseñado para elevar el movimiento creativo de México en un escenario global, Flow CDMX funciona como plataforma y catalizador: destacando voces emergentes, fortaleciendo conexiones entre CDMX, Austin, Los Ángeles, Puerto Vallarta y más, y creando oportunidades significativas para patrocinadores, medios y colaboradores alineados con una audiencia de alto impacto y propósito.",
       "A través de este encuentro también apoyamos a Yelapa Foundation y al Festival de Cine Consciente, impulsando iniciativas enfocadas en impacto social, consciencia, comunidad y narrativas con propósito.",
@@ -111,10 +111,10 @@ export const copyEs: FlowSiteCopy = {
   artistsTitle: "Artistas y panelistas",
   causeTitle: "Causa e impacto",
   causeSubtitle: "Parte de lo recaudado apoya a estas organizaciones.",
-  ticketsTitle: "Boletos",
-  ticketsLead: "Precios en pesos mexicanos (MXN). Cupo limitado.",
+  ticketsTitle: "Registro",
+  ticketsLead: "Regístrate para recibir acceso prioritario cuando los boletos estén disponibles. Cupo limitado.",
   ticketsFootnote:
-    "Únete a la lista de espera y te avisaremos en cuanto los boletos estén disponibles.",
+    "Te contactaremos en cuanto los boletos estén listos.",
   possibleArtists: {
     intro:
       "Una selección del talento que está dando forma al Flow. La curaduría completa se anuncia en los próximos días.",
@@ -128,13 +128,13 @@ export const copyEs: FlowSiteCopy = {
     body: "El programa completo de los dos días se anuncia pronto.",
   },
   footer: {
-    line1: "Junio · Sede por anunciar · CDMX",
+    line1: "19-21 Junio · Sede por anunciar · CDMX",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
   },
 };
 
 export const copyEn: FlowSiteCopy = {
-  metaTitle: "FLOW CDMX — June · Mexico City",
+  metaTitle: "FLOW CDMX — June 19-21 · Mexico City",
   nav: { labelEs: "Español", labelEn: "English", hrefEs: "/", hrefEn: "/sundance-mexico-city" },
   sections: {
     about: "Experience",
@@ -142,20 +142,20 @@ export const copyEn: FlowSiteCopy = {
     equipo: "Team",
     artistas: "Artists",
     causa: "Impact",
-    tickets: "Tickets",
+    tickets: "Registration",
   },
   hero: {
-    kicker: "June · Venue TBA · Mexico City",
+    kicker: "June 19-21 · Venue TBA · Mexico City",
     title: "FLOW CDMX",
-    lead: "Part of the Flow multi-city experience: CDMX · Austin · Vallarta · Los Angeles. Film, music, and regenerative technology. Tickets coming soon — join the waitlist.",
-    cta: "Join waitlist",
+    lead: "Part of the Flow multi-city experience: CDMX · Austin · Vallarta · Los Angeles. Film, music, and regenerative technology. Register now for priority access when tickets are available.",
+    cta: "Register",
     ctaSecondary: { label: "Versión en español", href: "/" },
   },
   about: {
     kicker: "Flow Nation · CDMX",
     title: "Film, music & regenerative tech — built for connection",
     paragraphs: [
-      "FLOW CDMX is the first stop on a multi-city cultural journey built around film, music, and regenerative technology. In June, Mexico City becomes the first node of Flow Nation — a growing platform connecting creators, artists, filmmakers, musicians, wellness leaders, and regenerative tech builders for a fully immersive two-day experience.",
+      "FLOW CDMX is the first stop on a multi-city cultural journey built around film, music, and regenerative technology. June 19-21, Mexico City becomes the first node of Flow Nation — a growing platform connecting creators, artists, filmmakers, musicians, wellness leaders, and regenerative tech builders for a fully immersive three-day experience.",
       "Expect screenings, recorded conversations, live interviews, music, DJs, and community-led moments — including panels, a cacao circle, breathwork, Ecstatic DANZ, and FlowBond activations. The tone is intimate, elevated, and human: less conference, more living room for culture.",
       "The positioning is creativity, consciousness, and regenerative collaboration — a platform that highlights emerging voices, strengthens cross-border connections across CDMX, Austin, Los Angeles, Puerto Vallarta, and beyond, and creates meaningful opportunities for sponsors, media, and partners aligned with high-trust audiences.",
       "A portion of the gathering supports Yelapa Foundation and Festival de Cine Consciente — initiatives focused on social impact, storytelling, and community-forward culture.",
@@ -168,10 +168,10 @@ export const copyEn: FlowSiteCopy = {
   artistsTitle: "Artists & panelists",
   causeTitle: "Cause & impact",
   causeSubtitle: "Organizations we’re supporting through this event.",
-  ticketsTitle: "Tickets",
-  ticketsLead: "Pricing in Mexican Pesos (MXN). Limited capacity.",
+  ticketsTitle: "Registration",
+  ticketsLead: "Register for priority access when tickets are available. Limited capacity.",
   ticketsFootnote:
-    "Join the waitlist and we’ll notify you as soon as tickets are available.",
+    "We’ll reach out as soon as tickets are ready.",
   possibleArtists: {
     intro: "A selection of the talent shaping Flow. Full curation announced in the coming days.",
     placeholder: "+ More soon",
@@ -184,7 +184,7 @@ export const copyEn: FlowSiteCopy = {
     body: "The full two-day program will be announced soon.",
   },
   footer: {
-    line1: "June · Venue TBA · Mexico City",
+    line1: "June 19-21 · Venue TBA · Mexico City",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
   },
 };

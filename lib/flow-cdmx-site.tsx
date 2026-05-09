@@ -5,8 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
 
-// Flip to true when checkout is live — CTAs swap from waitlist to purchase
-const TICKETS_LIVE = false;
 
 export type SiteLink = { label: string; href: string };
 
@@ -179,7 +177,6 @@ export function FlowCdmxPage({
   team,
   artists,
   causes,
-  tickets,
 }: {
   locale: "es" | "en";
   copy: FlowSiteCopy;
@@ -187,21 +184,15 @@ export function FlowCdmxPage({
   team: ProfileEntry[];
   artists: ProfileEntry[];
   causes: CauseEntry[];
-  tickets: TicketTier[];
 }) {
   const [ticketSubmitted, setTicketSubmitted] = useState(false);
   const [ticketSubmitting, setTicketSubmitting] = useState(false);
   const [ticketError, setTicketError] = useState<string | null>(null);
-  const [ticketForm, setTicketForm] = useState({ name: "", email: "", phone: "", ticket_tier: "", notes: "" });
-
-  const openWaitlist = (tierName: string) => {
-    setTicketForm((s) => ({ ...s, ticket_tier: tierName }));
-    document.getElementById("registro-boletos")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [ticketForm, setTicketForm] = useState({ name: "", email: "", phone: "", heard_from: "", based_in: "" });
 
   const onTicketSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!ticketForm.name || !ticketForm.email || !ticketForm.ticket_tier) return;
+    if (!ticketForm.name || !ticketForm.email || !ticketForm.phone || !ticketForm.heard_from || !ticketForm.based_in) return;
     setTicketError(null);
     setTicketSubmitting(true);
     try {
@@ -211,9 +202,9 @@ export function FlowCdmxPage({
         body: JSON.stringify({
           name: ticketForm.name.trim(),
           email: ticketForm.email.trim(),
-          phone: ticketForm.phone.trim() || null,
-          ticket_tier: ticketForm.ticket_tier,
-          notes: ticketForm.notes.trim() || null,
+          phone: ticketForm.phone.trim(),
+          heard_from: ticketForm.heard_from,
+          based_in: ticketForm.based_in.trim(),
           locale,
           city: "CDMX",
         }),
@@ -449,100 +440,13 @@ export function FlowCdmxPage({
 
       <section id="tickets" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
         <SectionTitle kicker={copy.sections.tickets} title={copy.ticketsTitle} subtitle={copy.ticketsLead} />
-        <div className="grid gap-5 md:grid-cols-2">
-          {tickets.map((t) => (
-            <motion.article
-              key={t.name}
-              {...sectionAnim}
-              className={`rounded-2xl border p-8 ${
-                t.featured ? "border-lime-400/50 bg-lime-300/5 shadow-[0_0_40px_-12px_rgba(190,242,100,0.35)]" : "border-lime-200/10 bg-zinc-900/65"
-              }`}
-            >
-              {t.featured && t.featuredBadge ? (
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-lime-300">{t.featuredBadge}</p>
-              ) : null}
-              <h3 className="text-xl font-bold text-white">{t.name}</h3>
-              <p className="mt-4 text-4xl font-black tracking-tight text-lime-200">{t.priceLabel}</p>
-              {t.secondaryLine ? (
-                <p className="mt-2 text-sm tabular-nums text-neutral-400">{t.secondaryLine}</p>
-              ) : null}
-              <p className="mt-4 text-sm leading-relaxed text-neutral-400">{t.description}</p>
-              {TICKETS_LIVE ? (
-                <a
-                  href={t.ctaHref}
-                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
-                    t.featured ? "bg-lime-300 text-zinc-950 hover:bg-lime-200" : "border border-lime-300/40 text-lime-200 hover:bg-lime-300/10"
-                  }`}
-                >
-                  {t.ctaLabel}
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wide ${
-                    t.featured ? "bg-lime-300 text-zinc-950 hover:bg-lime-200" : "border border-lime-300/40 text-lime-200 hover:bg-lime-300/10"
-                  }`}
-                  onClick={() => openWaitlist(t.name)}
-                >
-                  {locale === "es" ? "Únete a la lista de espera" : "Join the waitlist"}
-                </button>
-              )}
-            </motion.article>
-          ))}
-        </div>
         <motion.div
           id="registro-boletos"
           {...sectionAnim}
-          className="mt-10 rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 md:p-8"
+          className="rounded-2xl border border-lime-200/10 bg-zinc-900/65 p-6 md:p-8"
         >
-          <h3 className="text-xl font-bold text-white">
-            {locale === "es" ? "Únete a la lista de espera" : "Join the waitlist"}
-          </h3>
-          <p className="mt-2 text-sm text-neutral-400">
-            {locale === "es"
-              ? "Selecciona tu boleto y deja tus datos — te avisamos en cuanto estén disponibles."
-              : "Select your ticket and leave your details — we'll notify you as soon as they're available."}
-          </p>
-
-          <div className="mt-6 grid gap-4 rounded-2xl border border-lime-200/10 bg-black/25 p-4 md:grid-cols-2">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300/90">
-                {locale === "es" ? "Patrocinio" : "Sponsorship"}
-              </p>
-              <Link
-                href="/sponsors#patrocinio-form"
-                className="inline-block text-sm font-medium text-white underline decoration-lime-400/45 underline-offset-4 transition hover:text-lime-200"
-              >
-                {locale === "es"
-                  ? "Ver más información sobre patrocinios y enviar una solicitud"
-                  : "Learn more about sponsorships and send an inquiry"}
-              </Link>
-            </div>
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-300/90">
-                {locale === "es" ? "Ser parte del FLOW" : "Be part of FLOW"}
-              </p>
-              <div className="flex flex-col gap-2 text-sm">
-                <Link
-                  href="/artistas/aplicar"
-                  className="font-medium text-lime-200/95 underline decoration-lime-400/40 underline-offset-4 hover:text-white"
-                >
-                  {locale === "es" ? "¿Eres artista? → Aplicar" : "Are you an artist? → Apply"}
-                </Link>
-                <Link
-                  href="/colaborar"
-                  className="font-medium text-neutral-200 underline decoration-lime-400/35 underline-offset-4 hover:text-white"
-                >
-                  {locale === "es"
-                    ? "¿Productor, marca o proyecto? → Colaborar"
-                    : "Producer, brand, or project? → Collaborate"}
-                </Link>
-              </div>
-            </div>
-          </div>
-
           {!ticketSubmitted ? (
-            <form onSubmit={onTicketSubmit} className="mt-5 grid gap-3 md:grid-cols-2">
+            <form onSubmit={onTicketSubmit} className="grid gap-3 md:grid-cols-2">
               {ticketError ? (
                 <p className="md:col-span-2 rounded-xl border border-red-400/30 bg-red-950/40 px-4 py-3 text-sm text-red-200">
                   {ticketError}
@@ -566,30 +470,37 @@ export function FlowCdmxPage({
               />
               <input
                 type="tel"
-                placeholder={locale === "es" ? "Teléfono (opcional)" : "Phone (optional)"}
+                placeholder={locale === "es" ? "Teléfono" : "Phone number"}
                 value={ticketForm.phone}
                 onChange={(e) => setTicketForm((s) => ({ ...s, phone: e.target.value }))}
                 className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
+                required
+              />
+              <input
+                type="text"
+                placeholder={locale === "es" ? "¿Dónde vives normalmente? (ciudad / país)" : "Where are you normally based? (city / country)"}
+                value={ticketForm.based_in}
+                onChange={(e) => setTicketForm((s) => ({ ...s, based_in: e.target.value }))}
+                className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
+                required
               />
               <select
-                value={ticketForm.ticket_tier}
-                onChange={(e) => setTicketForm((s) => ({ ...s, ticket_tier: e.target.value }))}
+                value={ticketForm.heard_from}
+                onChange={(e) => setTicketForm((s) => ({ ...s, heard_from: e.target.value }))}
                 className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-lime-300/60 md:col-span-2"
                 required
               >
-                <option value="">{locale === "es" ? "Selecciona tu boleto..." : "Select your ticket..."}</option>
-                {tickets.map((t) => (
-                  <option key={t.name} value={t.name}>
-                    {t.name} — {t.priceLabel}
-                  </option>
-                ))}
+                <option value="">
+                  {locale === "es" ? "¿Cómo te enteraste del Flow?" : "How did you hear about Flow?"}
+                </option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="TikTok">TikTok</option>
+                <option value="WhatsApp / Telegram">WhatsApp / Telegram</option>
+                <option value="Amigo / recomendación">{locale === "es" ? "Amigo / recomendación" : "Friend / word of mouth"}</option>
+                <option value="Google">{locale === "es" ? "Búsqueda en Google" : "Google Search"}</option>
+                <option value="Otro">{locale === "es" ? "Otro" : "Other"}</option>
               </select>
-              <textarea
-                placeholder={locale === "es" ? "Mensaje (opcional)" : "Message (optional)"}
-                value={ticketForm.notes}
-                onChange={(e) => setTicketForm((s) => ({ ...s, notes: e.target.value }))}
-                className="min-h-[90px] rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
-              />
               <button
                 type="submit"
                 disabled={ticketSubmitting}
@@ -600,15 +511,15 @@ export function FlowCdmxPage({
                     ? "Enviando…"
                     : "Sending…"
                   : locale === "es"
-                    ? "Únete a la lista de espera"
-                    : "Join the waitlist"}
+                    ? "Registrarme"
+                    : "Register"}
               </button>
             </form>
           ) : (
-            <p className="mt-4 text-sm font-medium text-lime-200">
+            <p className="text-sm font-medium text-lime-200">
               {locale === "es"
-                ? "Te avisaremos en cuanto los boletos estén disponibles 🌊"
-                : "We'll notify you as soon as tickets are available 🌊"}
+                ? "¡Registro confirmado! Te contactaremos en cuanto los boletos estén listos. 🌊"
+                : "Registration confirmed! We'll reach out as soon as tickets are ready. 🌊"}
             </p>
           )}
         </motion.div>
