@@ -5,8 +5,10 @@ export type WaitlistRow = {
   created_at: string;
   name: string;
   email: string;
+  phone: string | null;
+  based_in: string | null;
+  heard_from: string | null;
   interest: string;
-  notes: string | null;
   locale: string;
   source: string;
 };
