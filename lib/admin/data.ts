@@ -8,6 +8,7 @@ export type WaitlistRow = {
   phone: string | null;
   based_in: string | null;
   heard_from: string | null;
+  heard_from_detail: string | null;
   interest: string;
   locale: string;
   source: string;

@@ -188,7 +188,7 @@ export function FlowCdmxPage({
   const [ticketSubmitted, setTicketSubmitted] = useState(false);
   const [ticketSubmitting, setTicketSubmitting] = useState(false);
   const [ticketError, setTicketError] = useState<string | null>(null);
-  const [ticketForm, setTicketForm] = useState({ name: "", email: "", phone: "", heard_from: "", based_in: "" });
+  const [ticketForm, setTicketForm] = useState({ name: "", email: "", phone: "", heard_from: "", heard_from_detail: "", based_in: "" });
 
   const onTicketSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -204,6 +204,7 @@ export function FlowCdmxPage({
           email: ticketForm.email.trim(),
           phone: ticketForm.phone.trim(),
           heard_from: ticketForm.heard_from,
+          heard_from_detail: ticketForm.heard_from_detail.trim() || null,
           based_in: ticketForm.based_in.trim(),
           locale,
           city: "CDMX",
@@ -486,7 +487,8 @@ export function FlowCdmxPage({
               />
               <select
                 value={ticketForm.heard_from}
-                onChange={(e) => setTicketForm((s) => ({ ...s, heard_from: e.target.value }))}
+                onChange={(e) => setTicketForm((s) => ({ ...s, heard_from: e.target.value, heard_from_detail: "" }))}
+
                 className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-lime-300/60 md:col-span-2"
                 required
               >
@@ -501,6 +503,25 @@ export function FlowCdmxPage({
                 <option value="Google">{locale === "es" ? "Búsqueda en Google" : "Google Search"}</option>
                 <option value="Otro">{locale === "es" ? "Otro" : "Other"}</option>
               </select>
+              {ticketForm.heard_from === "Otro" && (
+                <input
+                  type="text"
+                  placeholder={locale === "es" ? "¿Cuál?" : "Please specify"}
+                  value={ticketForm.heard_from_detail}
+                  onChange={(e) => setTicketForm((s) => ({ ...s, heard_from_detail: e.target.value }))}
+                  className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
+                  required
+                />
+              )}
+              {ticketForm.heard_from === "Amigo / recomendación" && (
+                <input
+                  type="text"
+                  placeholder={locale === "es" ? "¿De quién? (opcional)" : "Referred by? (optional)"}
+                  value={ticketForm.heard_from_detail}
+                  onChange={(e) => setTicketForm((s) => ({ ...s, heard_from_detail: e.target.value }))}
+                  className="rounded-xl border border-lime-200/20 bg-black/30 px-4 py-3 text-sm text-white outline-none placeholder:text-neutral-500 focus:border-lime-300/60 md:col-span-2"
+                />
+              )}
               <button
                 type="submit"
                 disabled={ticketSubmitting}

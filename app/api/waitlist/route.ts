@@ -32,6 +32,7 @@ export async function POST(request: Request) {
   const email = typeof b.email === "string" ? b.email.trim().toLowerCase() : "";
   const phone = typeof b.phone === "string" ? b.phone.trim() : null;
   const heard_from = typeof b.heard_from === "string" ? b.heard_from.trim() : null;
+  const heard_from_detail = typeof b.heard_from_detail === "string" ? b.heard_from_detail.trim() || null : null;
   const based_in = typeof b.based_in === "string" ? b.based_in.trim() : null;
   const locale = b.locale === "en" || b.locale === "es" ? b.locale : null;
   const city = typeof b.city === "string" ? b.city.trim() : null;
@@ -64,6 +65,7 @@ export async function POST(request: Request) {
       ticket_tier: "registration",
       phone,
       heard_from,
+      heard_from_detail,
       based_in,
       locale,
       city: city || null,

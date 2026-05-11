@@ -57,6 +57,7 @@ export default async function AdminDashboardPage() {
                   <th className="px-3 py-2 font-medium">Teléfono</th>
                   <th className="px-3 py-2 font-medium">Ciudad / País</th>
                   <th className="px-3 py-2 font-medium">¿Cómo se enteró?</th>
+                  <th className="px-3 py-2 font-medium">Detalle</th>
                   <th className="px-3 py-2 font-medium">Idioma</th>
                 </tr>
               </thead>
@@ -71,6 +72,7 @@ export default async function AdminDashboardPage() {
                     <td className="max-w-[130px] truncate px-3 py-2 text-zinc-300">{row.phone ?? "—"}</td>
                     <td className="max-w-[160px] truncate px-3 py-2 text-zinc-300">{row.based_in ?? "—"}</td>
                     <td className="max-w-[160px] truncate px-3 py-2 text-zinc-400">{row.heard_from ?? "—"}</td>
+                    <td className="max-w-[160px] truncate px-3 py-2 text-zinc-500">{row.heard_from_detail ?? "—"}</td>
                     <td className="px-3 py-2 text-zinc-400">{row.locale}</td>
                   </tr>
                 ))}
