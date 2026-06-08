@@ -88,9 +88,9 @@ export const copyEs: FlowSiteCopy = {
     tickets: "Registro",
   },
   hero: {
-    kicker: "19-21 Junio · Sede por anunciar · CDMX",
+    kicker: "19-21 Junio · MUV Lab · CDMX",
     title: "FLOW CDMX",
-    lead: "Parte de la experiencia Flow multi-ciudad: CDMX · Austin · Vallarta · Los Ángeles. Cine, música y tecnología regenerativa. Regístrate para recibir acceso prioritario cuando los boletos estén disponibles.",
+    lead: "Del 19 al 21 de junio en MUV Lab, Ciudad de México. Parte de la experiencia Flow multi-ciudad: CDMX · Austin · Vallarta · Los Ángeles. Cine, música y tecnología regenerativa. Regístrate para recibir acceso prioritario cuando los boletos estén disponibles.",
     cta: "Regístrate",
     ctaSecondary: { label: "English version", href: "/sundance-mexico-city" },
   },
@@ -98,7 +98,7 @@ export const copyEs: FlowSiteCopy = {
     kicker: "Sobre el evento",
     title: "Tres días de cine, música y tecnología regenerativa",
     paragraphs: [
-      "Flow CDMX es la primera parada de una experiencia cultural multi-ciudad diseñada para celebrar el futuro del cine, la música y la tecnología regenerativa. Del 19 al 21 de junio, Ciudad de México se convierte en el primer nodo de Flow Nation: una plataforma en expansión que conecta creadores, artistas, cineastas, músicos, líderes de bienestar y builders de tecnología regenerativa para vivir una experiencia inmersiva de tres días.",
+      "Flow CDMX es la primera parada de una experiencia cultural multi-ciudad diseñada para celebrar el futuro del cine, la música y la tecnología regenerativa. Del 19 al 21 de junio, Ciudad de México se convierte en el primer nodo de Flow Nation: una plataforma en expansión que conecta creadores, artistas, cineastas, músicos, líderes de bienestar y builders de tecnología regenerativa para vivir una experiencia inmersiva de tres días en MUV Lab.",
       "La programación incluye proyecciones, conversaciones grabadas, entrevistas en vivo, música, DJs y experiencias comunitarias. Entre las activaciones previstas están paneles, círculo de cacao, breathwork, Ecstatic DANZ y momentos FlowBond — siempre con un tono cálido, curado y presente.",
       "Diseñado para elevar el movimiento creativo de México en un escenario global, Flow CDMX funciona como plataforma y catalizador: destacando voces emergentes, fortaleciendo conexiones entre CDMX, Austin, Los Ángeles, Puerto Vallarta y más, y creando oportunidades significativas para patrocinadores, medios y colaboradores alineados con una audiencia de alto impacto y propósito.",
       "A través de este encuentro también apoyamos a Yelapa Foundation y al Festival de Cine Consciente, impulsando iniciativas enfocadas en impacto social, consciencia, comunidad y narrativas con propósito.",
@@ -125,10 +125,10 @@ export const copyEs: FlowSiteCopy = {
   },
   program: {
     title: "Programa",
-    body: "El programa completo de los dos días se anuncia pronto.",
+    body: "Tres días en MUV Lab. Noche de apertura con círculo de cacao, la proyección de RIVUS (El Último Río Vivo) y el trailer de Los Plebes; día principal con breathwork, paneles de cine y cultura, poesía y spoken word, showcases de música en vivo y DJ sets con Tatewari y CrissyJ; día de cierre con talleres de bienestar, jam comunitario y ceremonia de integración. Programa completo próximamente.",
   },
   footer: {
-    line1: "19-21 Junio · Sede por anunciar · CDMX",
+    line1: "19-21 Junio · MUV Lab · CDMX",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
   },
 };
@@ -145,9 +145,9 @@ export const copyEn: FlowSiteCopy = {
     tickets: "Registration",
   },
   hero: {
-    kicker: "June 19-21 · Venue TBA · Mexico City",
+    kicker: "June 19-21 · MUV Lab · Mexico City",
     title: "FLOW CDMX",
-    lead: "Part of the Flow multi-city experience: CDMX · Austin · Vallarta · Los Angeles. Film, music, and regenerative technology. Register now for priority access when tickets are available.",
+    lead: "June 19-21 at MUV Lab, Mexico City. Part of the Flow multi-city experience: CDMX · Austin · Vallarta · Los Angeles. Film, music, and regenerative technology. Register now for priority access when tickets are available.",
     cta: "Register",
     ctaSecondary: { label: "Versión en español", href: "/" },
   },
@@ -155,7 +155,7 @@ export const copyEn: FlowSiteCopy = {
     kicker: "Flow Nation · CDMX",
     title: "Film, music & regenerative tech — built for connection",
     paragraphs: [
-      "FLOW CDMX is the first stop on a multi-city cultural journey built around film, music, and regenerative technology. June 19-21, Mexico City becomes the first node of Flow Nation — a growing platform connecting creators, artists, filmmakers, musicians, wellness leaders, and regenerative tech builders for a fully immersive three-day experience.",
+      "FLOW CDMX is the first stop on a multi-city cultural journey built around film, music, and regenerative technology. From June 19-21, Mexico City becomes the first node of Flow Nation — a growing platform connecting creators, artists, filmmakers, musicians, wellness leaders, and regenerative tech builders for a fully immersive three-day experience at MUV Lab.",
       "Expect screenings, recorded conversations, live interviews, music, DJs, and community-led moments — including panels, a cacao circle, breathwork, Ecstatic DANZ, and FlowBond activations. The tone is intimate, elevated, and human: less conference, more living room for culture.",
       "The positioning is creativity, consciousness, and regenerative collaboration — a platform that highlights emerging voices, strengthens cross-border connections across CDMX, Austin, Los Angeles, Puerto Vallarta, and beyond, and creates meaningful opportunities for sponsors, media, and partners aligned with high-trust audiences.",
       "A portion of the gathering supports Yelapa Foundation and Festival de Cine Consciente — initiatives focused on social impact, storytelling, and community-forward culture.",
@@ -181,10 +181,10 @@ export const copyEn: FlowSiteCopy = {
   },
   program: {
     title: "Program",
-    body: "The full two-day program will be announced soon.",
+    body: "Three days at MUV Lab. Opening night with a cacao circle, the RIVUS (The Last Living River) screening and the Los Plebes trailer; main day with breathwork, film & culture panels, poetry and spoken word, live music showcases and DJ sets from Tatewari and CrissyJ; closing day with wellness workshops, a community jam, and an integration ceremony. Full program coming soon.",
   },
   footer: {
-    line1: "June 19-21 · Venue TBA · Mexico City",
+    line1: "June 19-21 · MUV Lab · Mexico City",
     rights: "© 2026 FlowNation · cdmx.flownation.world",
   },
 };
@@ -220,7 +220,7 @@ export const ticketsEs: TicketTier[] = [
     name: "Entrada general",
     priceLabel: "$333 MXN",
     secondaryLine: "En puerta: $400 MXN",
-    description: "Acceso a los dos días de programación en CDMX — proyecciones, conversaciones, música y momentos de comunidad.",
+    description: "Acceso a los tres días de programación en CDMX — proyecciones, conversaciones, música y momentos de comunidad.",
     ctaLabel: "Comprar",
     ctaHref: TICKETS_CHECKOUT,
   },
@@ -242,7 +242,7 @@ export const ticketsEn: TicketTier[] = [
     name: "General admission",
     priceLabel: "$333 MXN",
     secondaryLine: "At door: $400 MXN",
-    description: "Two-day access to programming in Mexico City — screenings, conversations, music, and community moments.",
+    description: "Three-day access to programming in Mexico City — screenings, conversations, music, and community moments.",
     ctaLabel: "Buy",
     ctaHref: TICKETS_CHECKOUT,
   },

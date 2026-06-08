@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | FLOW CDMX",
   },
   description:
-    "FLOW CDMX — Junio en Ciudad de México. Cine, música y tecnología regenerativa. Primer nodo de Flow Nation. Únete a la lista de espera.",
+    "FLOW CDMX — 19–21 de junio en MUV Lab, Ciudad de México. Cine, música y tecnología regenerativa. Primer nodo de Flow Nation. Únete a la lista de espera.",
   keywords: [
     "FLOW CDMX",
     "Flow Nation",
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     siteName: "Flow Nation",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "Junio · Sede por anunciar · CDMX. Cine, música y tecnología regenerativa — primer nodo de Flow Nation.",
+      "19–21 Junio · MUV Lab · CDMX. Cine, música y tecnología regenerativa — primer nodo de Flow Nation.",
   },
   twitter: {
     card: "summary_large_image",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "Junio · CDMX. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
+      "19–21 Junio · MUV Lab · CDMX. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
   },
   robots: {
     index: true,

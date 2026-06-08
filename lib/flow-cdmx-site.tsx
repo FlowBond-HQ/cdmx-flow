@@ -273,32 +273,57 @@ export function FlowCdmxPage({
         </div>
       </header>
 
-      <section id="inicio" className="mx-auto flex min-h-[85vh] w-full max-w-7xl flex-col justify-center px-5 py-20 md:px-10">
-        <motion.p {...sectionAnim} className="mb-4 text-sm uppercase tracking-[0.25em] text-lime-300/85">
-          {copy.hero.kicker}
-        </motion.p>
-        <motion.h1 {...sectionAnim} className="max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl md:text-8xl">
-          {copy.hero.title}
-        </motion.h1>
-        <motion.p {...sectionAnim} className="mt-7 max-w-3xl text-lg leading-relaxed text-neutral-200 md:text-2xl">
-          {copy.hero.lead}
-        </motion.p>
-        <motion.div {...sectionAnim} className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="#tickets"
-            className="inline-flex rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-lime-200"
+      <section id="inicio" className="relative isolate flex min-h-[90vh] w-full flex-col justify-center overflow-hidden px-5 py-24 md:px-10">
+        {/* Brand key-art background */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/flow-cdmx-keyart.jpg"
+            alt="FLOW CDMX"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/70 via-zinc-950/55 to-zinc-950" />
+        </div>
+        <div className="mx-auto w-full max-w-7xl">
+          <motion.p {...sectionAnim} className="mb-4 text-sm uppercase tracking-[0.25em] text-lime-300">
+            {copy.hero.kicker}
+          </motion.p>
+          <motion.h1
+            {...sectionAnim}
+            className="max-w-4xl text-5xl font-black tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)] sm:text-6xl md:text-8xl"
           >
-            {copy.hero.cta}
-          </a>
-          {copy.hero.ctaSecondary ? (
+            {copy.hero.title}
+          </motion.h1>
+          <motion.p {...sectionAnim} className="mt-7 max-w-3xl text-lg leading-relaxed text-neutral-100 md:text-2xl">
+            {copy.hero.lead}
+          </motion.p>
+          <motion.div {...sectionAnim} className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href={copy.hero.ctaSecondary.href}
-              className="inline-flex rounded-full border border-lime-300/40 px-7 py-3 text-sm font-bold uppercase tracking-wide text-lime-200 transition hover:bg-lime-300/10"
+              href="#tickets"
+              className="inline-flex rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-lime-200"
             >
-              {copy.hero.ctaSecondary.label}
+              {copy.hero.cta}
             </a>
-          ) : null}
-        </motion.div>
+            {copy.hero.ctaSecondary ? (
+              <a
+                href={copy.hero.ctaSecondary.href}
+                className="inline-flex rounded-full border border-lime-300/40 px-7 py-3 text-sm font-bold uppercase tracking-wide text-lime-200 transition hover:bg-lime-300/10"
+              >
+                {copy.hero.ctaSecondary.label}
+              </a>
+            ) : null}
+            <a
+              href="https://muvlab.mx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-lime-200/90 underline underline-offset-4 transition hover:text-lime-200"
+            >
+              {locale === "es" ? "Sede: MUV Lab ↗" : "Venue: MUV Lab ↗"}
+            </a>
+          </motion.div>
+        </div>
       </section>
 
       <section id="evento" className="mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
