@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { FlowEditProvider } from "@/lib/flowedit/provider";
 import "./globals.css";
 import "./flow-cdmx.css";
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | FLOW CDMX",
   },
   description:
-    "FLOW CDMX — 19–21 de junio en MUV Lab, Ciudad de México. Cine, música y tecnología regenerativa. Primer nodo de Flow Nation. Únete a la lista de espera.",
+    "FLOW CDMX — 19 de junio en MUV Lab, Ciudad de México. Cine, música y tecnología regenerativa. Primer nodo de Flow Nation. Únete a la lista de espera.",
   keywords: [
     "FLOW CDMX",
     "Flow Nation",
@@ -48,13 +49,13 @@ export const metadata: Metadata = {
     siteName: "Flow Nation",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "19–21 Junio · MUV Lab · CDMX. Cine, música y tecnología regenerativa — primer nodo de Flow Nation.",
+      "19 Junio · MUV Lab · CDMX. Cine, música y tecnología regenerativa — primer nodo de Flow Nation.",
   },
   twitter: {
     card: "summary_large_image",
     title: "FLOW CDMX | Flow Nation",
     description:
-      "19–21 Junio · MUV Lab · CDMX. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
+      "19 Junio · MUV Lab · CDMX. Cine, música y tecnología regenerativa. Boletos próximamente — únete a la lista de espera.",
   },
   robots: {
     index: true,
@@ -72,7 +73,11 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <FlowEditProvider siteId="flow-cdmx" apiUrl="http://localhost:4000">
+          {children}
+        </FlowEditProvider>
+      </body>
     </html>
   );
 }

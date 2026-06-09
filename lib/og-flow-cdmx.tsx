@@ -43,7 +43,7 @@ export function flowCdmxOgImageResponse() {
               marginBottom: 20,
             }}
           >
-            19–21 JUNIO · MUV LAB · CDMX
+            19 JUNIO · MUV LAB · CDMX
           </div>
           <div
             style={{

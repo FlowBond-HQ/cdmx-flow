@@ -78,8 +78,8 @@ export const sponsorsCopyEs: SponsorsCopy = {
   heroEyebrow: "Flow CDMX · Flow Nation",
   heroTitle: "Patrocina Flow CDMX — Experiencia Cultural Multi-Ciudad",
   introParagraphs: [
-    "Flow CDMX es una experiencia cultural de tres días en la intersección del cine, la música y la tecnología regenerativa. El primer nodo de Flow Nation — una plataforma en expansión que conecta CDMX, Austin, Los Ángeles, Puerto Vallarta y más.",
-    "Del 19 al 21 de junio, en MUV Lab, reuniremos a cineastas, artistas, músicos, líderes de bienestar, builders de tecnología regenerativa, medios y marcas conscientes para tres días de creatividad, conexión y cultura viva.",
+    "Flow CDMX es una experiencia cultural en la intersección del cine, la música y la tecnología regenerativa. El primer nodo de Flow Nation — una plataforma en expansión que conecta CDMX, Austin, Los Ángeles, Puerto Vallarta y más.",
+    "El 19 de junio, en MUV Lab, reuniremos a cineastas, artistas, músicos, líderes de bienestar, builders de tecnología regenerativa, medios y marcas conscientes para un día de creatividad, conexión y cultura viva.",
     "Al patrocinar Flow CDMX, tu marca no solo está apoyando un evento: está alineándose con un ecosistema internacional de creadores con propósito — cine, música, tecnología y comunidad en un solo movimiento.",
     "También queremos fomentar más intercambio cultural y turismo consciente dentro de México y más allá, invitando a colaboradores, artistas, marcas, medios y líderes creativos de distintas partes del país (y del mundo) a participar, conectar y construir juntos.",
   ],
@@ -295,8 +295,8 @@ export const sponsorsCopyEn: SponsorsCopy = {
   heroEyebrow: "Flow CDMX · Flow Nation",
   heroTitle: "Sponsor Flow CDMX — Multi-City Cultural Experience",
   introParagraphs: [
-    "Flow CDMX is a three-day cultural experience at the intersection of film, music, and regenerative technology. The first node of Flow Nation — an expanding platform connecting CDMX, Austin, Los Angeles, Puerto Vallarta, and more.",
-    "From June 19–21, at MUV Lab, we’re bringing together filmmakers, artists, musicians, wellness leaders, regenerative tech builders, media, and conscious brands for three days of creativity, connection, and living culture.",
+    "Flow CDMX is a single-day cultural experience at the intersection of film, music, and regenerative technology. The first node of Flow Nation — an expanding platform connecting CDMX, Austin, Los Angeles, Puerto Vallarta, and more.",
+    "On June 19, at MUV Lab, we’re bringing together filmmakers, artists, musicians, wellness leaders, regenerative tech builders, media, and conscious brands for a day of creativity, connection, and living culture.",
     "By sponsoring Flow CDMX, your brand isn’t only supporting an event — you’re aligning with an international ecosystem of purpose-driven creators: film, music, technology, and community moving as one.",
     "We also want to foster more cultural exchange and conscious tourism within Mexico and beyond, inviting collaborators, artists, brands, media, and creative leaders from across the country (and the world) to participate, connect, and build together.",
   ],
