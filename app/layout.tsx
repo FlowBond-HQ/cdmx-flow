@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { FlowEditProvider } from "@/lib/flowedit/provider";
 import "./globals.css";
 import "./flow-cdmx.css";
 
@@ -74,9 +73,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <FlowEditProvider siteId="flow-cdmx" apiUrl="http://localhost:4000">
-          {children}
-        </FlowEditProvider>
+        {children}
       </body>
     </html>
   );
