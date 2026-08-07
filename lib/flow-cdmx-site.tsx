@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Editable } from "@/lib/flowedit/editable";
 import { FormEvent, useState } from "react";
 
 
@@ -288,23 +289,23 @@ export function FlowCdmxPage({
         </div>
         <div className="mx-auto w-full max-w-7xl">
           <motion.p {...sectionAnim} className="mb-4 text-sm uppercase tracking-[0.25em] text-lime-300">
-            {copy.hero.kicker}
+            <Editable path="homepage/hero/kicker" field="text">{copy.hero.kicker}</Editable>
           </motion.p>
           <motion.h1
             {...sectionAnim}
             className="max-w-4xl text-5xl font-black tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)] sm:text-6xl md:text-8xl"
           >
-            {copy.hero.title}
+            <Editable path="homepage/hero/title" field="text">{copy.hero.title}</Editable>
           </motion.h1>
           <motion.p {...sectionAnim} className="mt-7 max-w-3xl text-lg leading-relaxed text-neutral-100 md:text-2xl">
-            {copy.hero.lead}
+            <Editable path="homepage/hero/lead" field="text">{copy.hero.lead}</Editable>
           </motion.p>
           <motion.div {...sectionAnim} className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#tickets"
               className="inline-flex rounded-full bg-lime-300 px-7 py-3 text-sm font-bold uppercase tracking-wide text-zinc-950 transition hover:bg-lime-200"
             >
-              {copy.hero.cta}
+              <Editable path="homepage/hero/cta" field="text">{copy.hero.cta}</Editable>
             </a>
             {copy.hero.ctaSecondary ? (
               <a
